@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.sweetseedsapp.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigationView"
+        android:animateLayoutChanges="true">
+
+    </FrameLayout>
+
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="0dp"
