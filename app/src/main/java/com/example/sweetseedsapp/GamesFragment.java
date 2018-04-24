@@ -18,7 +18,7 @@ public class GamesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static GamesFragment newInstance(){
+    public static Fragment newInstance(){
         GamesFragment gamesFragment = new GamesFragment();
         return gamesFragment;
     }

@@ -18,7 +18,7 @@ public class StatsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static StatsFragment newInstance(){
+    public static Fragment newInstance(){
         StatsFragment statsFragment = new StatsFragment();
         return statsFragment;
     }

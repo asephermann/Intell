@@ -18,9 +18,9 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(){
-        HomeFragment homeFragment = new HomeFragment();
-        return homeFragment;
+    public static Fragment newInstance(){
+        HomeFragment fragment = new HomeFragment();
+        return fragment;
     }
 
 
