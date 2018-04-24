@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SweetSeedsApp</string>
+    <string name="home">HOME</string>
+    <string name="stats">STATS</string>
+    <string name="games">GAMES</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
