@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.controllersandviews.StatsOuterAdapter;
+import com.example.sweetseedsapp.models.StatsInnerRVData;
 import com.example.sweetseedsapp.models.StatsOuterData;
 
 import java.util.ArrayList;
@@ -22,8 +26,9 @@ import java.util.List;
  */
 public class StatsFragment extends Fragment {
 
+    private static String TAG = "StatsFragment";
     RecyclerView statsRecyclerView;
-
+    StatsOuterData statsOuterData;
 
     public StatsFragment() {
         // Required empty public constructor
@@ -41,46 +46,47 @@ public class StatsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
         statsRecyclerView = view.findViewById(R.id.stats_rv);
-        populateColorList();
+        populateOutRVData();
         initRecyclerView();
         return view;
     }
 
-    private List<StatsOuterData> populateColorList(){
+    private List<StatsOuterData> populateOutRVData(){
         List<StatsOuterData> dataForStats = new ArrayList<>();
-        dataForStats.add(new StatsOuterData("#ffffff"));
-        dataForStats.add(new StatsOuterData("#f9982f"));
-        dataForStats.add(new StatsOuterData("#e3ee31"));
-        dataForStats.add(new StatsOuterData("#4366b0"));
-        dataForStats.add(new StatsOuterData("#2f90f9"));
-        dataForStats.add(new StatsOuterData("#bbbbbb"));
-        dataForStats.add(new StatsOuterData("#aaaaaa"));
+        dataForStats.add(new StatsOuterData(R.id.badge_banner));
+        dataForStats.add(new StatsOuterData(R.id.badge_update));
+        dataForStats.add(new StatsOuterData(R.id.inner_rv));
+        dataForStats.add(new StatsOuterData(R.id.how_to_use_badge));
+        dataForStats.add(new StatsOuterData(R.id.collectible_explained));
+        dataForStats.add(new StatsOuterData(R.id.collectible));
+        dataForStats.add(new StatsOuterData(R.id.points_toward_collectible));
 
         for(int i = 0; i < dataForStats.size(); i++){
-            StatsOuterData statsOuterData = dataForStats.get(i);
-            statsOuterData.setColorList(getColorList());
+            statsOuterData = dataForStats.get(i);
+//            statsOuterData.setStatsInnerRVDataList(getBadgeList());
+            Log.d(TAG, "populateOutRVData: " + dataForStats.get(i));
         }
         return dataForStats;
     }
 
-    private List<String> getColorList() {
-        List<String> colors = new ArrayList<>();
-        colors.add("#ffffff");
-        colors.add("#f9982f");
-        colors.add("#e3ee31");
-        colors.add("#4366b0");
-        colors.add("#2f90f9");
-        colors.add("#bbbbbb");
-        colors.add("#aaaaaa");
-        return colors;
-    }
+//    private List<StatsInnerRVData> getBadgeList() {
+//        List<StatsInnerRVData> badges = new ArrayList<>();
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 1));
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 2));
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 3));
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 4));
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 5));
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 6));
+//        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 7));
+//        Log.d(TAG, "getBadgeList: " + badges);
+//        return badges;
+//    }
 
     private void initRecyclerView(){
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         statsRecyclerView.setLayoutManager(layoutManager);
-        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateColorList());
+        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateOutRVData());
         statsRecyclerView.setAdapter(statsOuterAdapter);
+        statsOuterAdapter.notifyDataSetChanged();
     }
-
-
 }

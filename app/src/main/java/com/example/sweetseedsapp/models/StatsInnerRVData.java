@@ -1,44 +1,32 @@
 package com.example.sweetseedsapp.models;
 
-import java.util.List;
-
 /**
  * Created by vivianbabiryekulumba on 4/24/18.
  */
 
 public class StatsInnerRVData {
 
-    private String color;
-    private int resId;
+    private int badge;
+    private int position;
 
-    public List<String> getColorList() {
-        return colorList;
+    public StatsInnerRVData(int badge, int resId) {
+        this.badge = badge;
+        this.position = resId;
     }
 
-    public void setColorList(List<String> colorList) {
-        this.colorList = colorList;
+    public int getBadge() {
+        return badge;
     }
 
-    private List<String> colorList;
-
-
-    public StatsInnerRVData(String color) {
-        this.color = color;
+    public void setBadge(int badge) {
+        this.badge = badge;
     }
 
-    public String getColor() {
-        return color;
+    public int getPosition() {
+        return position;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getResId() {
-        return resId;
-    }
-
-    public void setResId(int resId) {
-        this.resId = resId;
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

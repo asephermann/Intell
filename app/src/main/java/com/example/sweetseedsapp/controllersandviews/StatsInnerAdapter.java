@@ -1,15 +1,19 @@
 package com.example.sweetseedsapp.controllersandviews;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.models.StatsInnerRVData;
+import com.example.sweetseedsapp.models.StatsOuterData;
 
 import java.util.List;
 
@@ -19,12 +23,11 @@ import java.util.List;
 
 public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.StatsInnerViewHolder> {
 
-    private List<String> colorList;
+    private List<StatsInnerRVData> statsInnerDataList;
 
-    public StatsInnerAdapter(List<String> colorList) {
-        this.colorList = colorList;
+    public StatsInnerAdapter(List<StatsInnerRVData> statsInnerDataList) {
+        this.statsInnerDataList = statsInnerDataList;
     }
-
 
     @NonNull
     @Override
@@ -34,26 +37,25 @@ public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.St
 
     @Override
     public void onBindViewHolder(@NonNull StatsInnerAdapter.StatsInnerViewHolder holder, int position) {
-        holder.onBind(colorList.get(position), position);
+        holder.onBind(statsInnerDataList.get(position));
     }
 
 
     @Override
     public int getItemCount() {
-        return colorList.size();
+        return statsInnerDataList.size();
     }
 
     public class StatsInnerViewHolder extends RecyclerView.ViewHolder {
-
 
         public StatsInnerViewHolder(ViewGroup itemView) {
             super(inflateLayout(itemView));
         }
 
-        public void onBind(String color, int position){
-            itemView.setBackgroundColor(Color.parseColor(color));
-            TextView textView = itemView.findViewById(R.id.rv_tv);
-            textView.setText(String.valueOf(position));
+        public void onBind(StatsInnerRVData statsInnerRVData){
+            ImageView badgeBanner = itemView.findViewById(R.id.badge_banner);
+            badgeBanner.setImageResource(R.drawable.badge_banner);
+
         }
     }
 

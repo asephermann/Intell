@@ -8,37 +8,45 @@ import java.util.List;
 
 public class StatsOuterData {
 
-    private String color;
-    private int resId;
+    private int image;
+    private int text;
+    private List<StatsOuterData> statsOuterDataList;
+    private List<StatsInnerRVData> statsInnerRVDataList;
 
-    public List<String> getColorList() {
-        return colorList;
+
+    public StatsOuterData(int imageView) {
+        this.image = imageView;
     }
 
-    public void setColorList(List<String> colorList) {
-        this.colorList = colorList;
+    public int getImage() {
+        return image;
     }
 
-    private List<String> colorList;
-
-
-    public StatsOuterData(String color) {
-        this.color = color;
+    public void setImage(int image) {
+        this.image = image;
     }
 
-    public String getColor() {
-        return color;
+    public int getText() {
+        return text;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setText(int text) {
+        this.text = text;
     }
 
-    public int getResId() {
-        return resId;
+    public List<StatsOuterData> getStatsOuterDataList() {
+        return statsOuterDataList;
     }
 
-    public void setResId(int resId) {
-        this.resId = resId;
+    public void setStatsOuterDataList(List<StatsOuterData> statsOuterDataList) {
+        this.statsOuterDataList = statsOuterDataList;
+    }
+
+    public List<StatsInnerRVData> getStatsInnerRVDataList() {
+        return statsInnerRVDataList;
+    }
+
+    public void setStatsInnerRVDataList(List<StatsInnerRVData> statsInnerRVDataList) {
+        this.statsInnerRVDataList = statsInnerRVDataList;
     }
 }
