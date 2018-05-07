@@ -1,4 +1,4 @@
-package com.example.sweetseedsapp;
+package com.example.sweetseedsapp.fragments;
 
 
 import android.os.Bundle;
@@ -7,20 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sweetseedsapp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GamesFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
 
-    public GamesFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
-    public static GamesFragment newInstance(){
-        GamesFragment gamesFragment = new GamesFragment();
-        return gamesFragment;
+    public static Fragment newInstance(){
+        HomeFragment fragment = new HomeFragment();
+        return fragment;
     }
 
 
@@ -28,7 +30,7 @@ public class GamesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
 }
