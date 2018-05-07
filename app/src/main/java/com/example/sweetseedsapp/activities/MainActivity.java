@@ -1,4 +1,4 @@
-package com.example.sweetseedsapp;
+package com.example.sweetseedsapp.activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.fragments.GamesFragment;
 import com.example.sweetseedsapp.fragments.HomeFragment;
 import com.example.sweetseedsapp.fragments.StatsFragment;
