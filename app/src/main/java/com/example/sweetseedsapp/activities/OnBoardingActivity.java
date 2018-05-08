@@ -13,6 +13,7 @@ import com.example.sweetseedsapp.fragments.OnBoardingGameFragment;
 import com.example.sweetseedsapp.fragments.OnBoardingHomeFragment;
 import com.example.sweetseedsapp.fragments.OnBoardingReadySetGoFragment;
 import com.example.sweetseedsapp.fragments.OnBoardingStatsFragment;
+import com.example.sweetseedsapp.fragments.OnBoardingWelcomeFragment;
 
 
 public class OnBoardingActivity extends FragmentActivity {
@@ -20,7 +21,7 @@ public class OnBoardingActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 4;
+    private static final int NUM_PAGES = 5;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -79,15 +80,17 @@ public class OnBoardingActivity extends FragmentActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return OnBoardingHomeFragment.newInstance();
+                    return OnBoardingWelcomeFragment.newInstance();
                 case 1:
-                    return OnBoardingStatsFragment.newInstance();
+                    return OnBoardingHomeFragment.newInstance();
                 case 2:
-                    return OnBoardingGameFragment.newInstance();
+                    return OnBoardingStatsFragment.newInstance();
                 case 3:
+                    return OnBoardingGameFragment.newInstance();
+                case 4:
                     return OnBoardingReadySetGoFragment.newInstance();
                 default:
-                    return null;
+                    return OnBoardingWelcomeFragment.newInstance();
             }
         }
 

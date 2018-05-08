@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.sweetseedsapp.R;
 
@@ -14,6 +15,7 @@ import com.example.sweetseedsapp.R;
  */
 public class OnBoardingStatsFragment extends Fragment {
 
+    ImageView ob_stats;
 
     public OnBoardingStatsFragment() {
         // Required empty public constructor
@@ -29,6 +31,7 @@ public class OnBoardingStatsFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_on_boarding_stats, container, false);
+        ob_stats = rootView.findViewById(R.id.ob_stats_iv);
 
         return rootView;
     }

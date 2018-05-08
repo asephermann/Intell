@@ -45,13 +45,13 @@ public class OnBoardingReadySetGoFragment extends Fragment {
             public void run() {
                 readySetGo1.setText(R.string.ready);
             }
-        }, 1000);
+        }, 1500);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 readySetGo2.setText(R.string.set);
             }
-        }, 2000);
+        }, 3000);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -59,7 +59,7 @@ public class OnBoardingReadySetGoFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
-        }, 4000);
+        }, 5000);
         return view;
     }
 

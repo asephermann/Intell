@@ -14,16 +14,16 @@ import com.example.sweetseedsapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OnBoardingHomeFragment extends Fragment {
+public class OnBoardingWelcomeFragment extends Fragment {
 
-    ImageView ob_home_image;
+    ImageView ob_welcome_iv;
 
-    public OnBoardingHomeFragment() {
+    public OnBoardingWelcomeFragment() {
         // Required empty public constructor
     }
 
-    public static OnBoardingHomeFragment newInstance(){
-        return new OnBoardingHomeFragment();
+    public static OnBoardingWelcomeFragment newInstance(){
+        return new OnBoardingWelcomeFragment();
     }
 
 
@@ -31,11 +31,9 @@ public class OnBoardingHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup rootView = (ViewGroup) inflater.inflate(
-                R.layout.fragment_on_boarding_home, container, false);
-        ob_home_image = rootView.findViewById(R.id.ob_home_image);
-
-        return rootView;
+        View view = inflater.inflate(R.layout.fragment_on_boarding_welcome, container, false);
+        ob_welcome_iv = view.findViewById(R.id.ob_welcome_iv);
+        return view;
     }
 
 }

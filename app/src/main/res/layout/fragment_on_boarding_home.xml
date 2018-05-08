@@ -2,8 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#45e2"
+    android:background="#fff"
     tools:context="com.example.sweetseedsapp.fragments.OnBoardingHomeFragment">
+
+    <ImageView
+        android:id="@+id/ob_home_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ob_home"
+        android:contentDescription="@string/fill" />
+
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,12 +19,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <TextView style="?android:textAppearanceMedium"
-            android:padding="16dp"
-            android:lineSpacingMultiplier="1.2"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/ob_home_tv"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="1" />
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="120dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            />
+
     </ScrollView>
 
 </FrameLayout>

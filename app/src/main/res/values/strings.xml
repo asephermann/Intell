@@ -12,4 +12,7 @@
     <string name="ready">Ready</string>
     <string name="set">SET</string>
     <string name="go">GO</string>
+    <string name="fill">FillImageView</string>
+    <string name="ob_home_text">Welcome home! With the home screen, you can step back to the beginning  You can filter the content specific for your overall intelligence pleasure. Explore what you want, when   you want with no interruptions. Have a change of mind? Not a problem ...</string>
+    <string name="ob_welcome">Welcome to Sweet Seeds! Here you\'ll tap into your 9 types of multiple intelligences! Let\'s get a move on to see what we\'ve got in store for you...</string>
 </resources>
