@@ -2,6 +2,7 @@ package com.example.sweetseedsapp.activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        android.support.v4.app.Fragment selectedFragment = null;
+                        Fragment selectedFragment = null;
+
                         switch (item.getItemId()) {
                             case R.id.navigation_home:
                                 selectedFragment = HomeFragment.newInstance();
