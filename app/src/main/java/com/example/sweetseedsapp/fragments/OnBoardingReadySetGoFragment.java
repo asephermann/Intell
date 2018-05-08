@@ -18,46 +18,48 @@ import com.example.sweetseedsapp.activities.MainActivity;
  */
 public class OnBoardingReadySetGoFragment extends Fragment {
 
-    TextView readySetGo;
+    TextView readySetGo1;
+    TextView readySetGo2;
+    TextView readySetGo3;
 
     public OnBoardingReadySetGoFragment() {
         // Required empty public constructor
     }
 
-    public static OnBoardingReadySetGoFragment newInstance(){
+    public static OnBoardingReadySetGoFragment newInstance() {
         return new OnBoardingReadySetGoFragment();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_on_boarding_ready_set_go, container, false);
-        readySetGo = view.findViewById(R.id.readySetGo);
+        readySetGo1 = view.findViewById(R.id.ready);
+        readySetGo2 = view.findViewById(R.id.set);
+        readySetGo3 = view.findViewById(R.id.go);
 
         //Ready, set, go on a handler to run one at a time and give it game effect
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-               readySetGo.setText(R.string.ready);
+                readySetGo1.setText(R.string.ready);
             }
         }, 1000);
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                readySetGo.setText(R.string.set);
+                readySetGo2.setText(R.string.set);
             }
-        }, 1000);
-        new Handler().postDelayed(new Runnable(){
+        }, 2000);
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                readySetGo.setText(R.string.go);
+                readySetGo3.setText(R.string.go);
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
-        }, 1000);
-
+        }, 4000);
         return view;
     }
 
