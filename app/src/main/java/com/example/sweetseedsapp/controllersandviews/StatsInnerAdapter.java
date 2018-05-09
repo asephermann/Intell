@@ -53,8 +53,8 @@ public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.St
         }
 
         public void onBind(StatsInnerRVData statsInnerRVData){
-            ImageView badgeBanner = itemView.findViewById(R.id.badge_banner);
-            badgeBanner.setImageResource(R.drawable.badge_banner);
+            ImageView badge = itemView.findViewById(R.id.badge);
+            badge.setImageResource(statsInnerRVData.getBadge());
 
         }
     }
