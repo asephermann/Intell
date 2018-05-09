@@ -52,7 +52,7 @@ public class StatsFragment extends Fragment {
 
     private List<StatsOuterData> populateOutRVData(){
         List<StatsOuterData> dataForStats = new ArrayList<>();
-        dataForStats.add(new StatsOuterData(R.id.badge_banner));
+        dataForStats.add(new StatsOuterData(R.id.badge_status_banner));
         dataForStats.add(new StatsOuterData(R.id.inner_rv));
 
         for(int i = 0; i < dataForStats.size(); i++){
@@ -65,13 +65,13 @@ public class StatsFragment extends Fragment {
 
     private List<StatsInnerRVData> getBadgeList() {
         List<StatsInnerRVData> badges = new ArrayList<>();
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 1));
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 2));
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 3));
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 4));
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 5));
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 6));
-        badges.add(new StatsInnerRVData(R.drawable.badge_banner, 7));
+        badges.add(new StatsInnerRVData(R.drawable.badge_one, 1));
+        badges.add(new StatsInnerRVData(R.drawable.badge_two, 2));
+        badges.add(new StatsInnerRVData(R.drawable.badge_three, 3));
+        badges.add(new StatsInnerRVData(R.drawable.badge_four, 4));
+        badges.add(new StatsInnerRVData(R.drawable.badge_five, 5));
+        badges.add(new StatsInnerRVData(R.drawable.badge_six, 6));
+        badges.add(new StatsInnerRVData(R.drawable.badge_seven, 7));
         Log.d(TAG, "getBadgeList: " + badges);
         return badges;
     }

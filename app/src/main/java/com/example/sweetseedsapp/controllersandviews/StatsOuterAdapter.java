@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.models.StatsInnerRVData;
 import com.example.sweetseedsapp.models.StatsOuterData;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
 
     private static String TAG = "StatsOuterAdapter";
     private List<StatsOuterData> dataForStats;
+    private List<StatsInnerRVData> statsInnerDataList;
 
     public StatsOuterAdapter(List<StatsOuterData> statsOuterDataList) {
         this.dataForStats = statsOuterDataList;
@@ -37,8 +39,7 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
 
     @Override
     public void onBindViewHolder(@NonNull StatsOuterAdapter.StatsOuterViewHolder holder, int position) {
-        StatsOuterViewHolder statsOuterViewHolder = holder;
-        statsOuterViewHolder.bind(dataForStats.get(position));
+        holder.bind(dataForStats.get(position));
         Log.d(TAG, "onBindViewHolder: " + dataForStats.size());
     }
 
@@ -58,14 +59,14 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
 
         public StatsOuterViewHolder(View itemView) {
             super(itemView);
-            badgeBanner = itemView.findViewById(R.id.badge_banner);
+            badgeBanner = itemView.findViewById(R.id.badge_status_banner);
             innerRecyclerView = itemView.findViewById(R.id.inner_rv);
         }
 
         public void bind(StatsOuterData statsOuterData) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
             innerRecyclerView.setLayoutManager(layoutManager);
-            innerRecyclerView.setAdapter(new StatsOuterAdapter(statsOuterData.getStatsOuterDataList()));
+            innerRecyclerView.setAdapter(new StatsInnerAdapter(statsOuterData.getStatsInnerRVDataList()));
 
         }
     }
