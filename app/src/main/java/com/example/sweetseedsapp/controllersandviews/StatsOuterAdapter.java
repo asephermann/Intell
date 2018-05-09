@@ -53,35 +53,19 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
     public class StatsOuterViewHolder extends RecyclerView.ViewHolder {
 
         ImageView badgeBanner;
-        TextView badgeUpdateMessage;
         RecyclerView innerRecyclerView;
-        TextView howToUseBadge;
-        TextView collectibleExplained;
-        ImageView collectible;
-        ImageView pointsTowardCollectible;
 
 
         public StatsOuterViewHolder(View itemView) {
             super(itemView);
             badgeBanner = itemView.findViewById(R.id.badge_banner);
-            badgeUpdateMessage = itemView.findViewById(R.id.badge_update);
             innerRecyclerView = itemView.findViewById(R.id.inner_rv);
-            howToUseBadge = itemView.findViewById(R.id.how_to_use_badge);
-            collectibleExplained = itemView.findViewById(R.id.collectible_explained);
-            collectible = itemView.findViewById(R.id.collectible);
-            pointsTowardCollectible = itemView.findViewById(R.id.points_toward_collectible);
         }
 
         public void bind(StatsOuterData statsOuterData) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
             innerRecyclerView.setLayoutManager(layoutManager);
             innerRecyclerView.setAdapter(new StatsOuterAdapter(statsOuterData.getStatsOuterDataList()));
-            badgeBanner.setImageResource(R.drawable.badge_banner);
-            badgeUpdateMessage.setText(R.string.badge_update);
-            howToUseBadge.setText(R.string.bagdeHowTo);
-            collectibleExplained.setText(R.string.collectibleExplained);
-            collectible.setImageResource(R.drawable.rocketship);
-            pointsTowardCollectible.setImageResource(R.drawable.collectible_display);
 
         }
     }

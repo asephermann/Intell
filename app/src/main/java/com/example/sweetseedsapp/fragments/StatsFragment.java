@@ -26,6 +26,7 @@ public class StatsFragment extends Fragment {
     private static String TAG = "StatsFragment";
     RecyclerView statsRecyclerView;
     StatsOuterData statsOuterData;
+    StatsInnerRVData statsInnerRVData;
 
     public StatsFragment() {
         // Required empty public constructor
@@ -52,12 +53,7 @@ public class StatsFragment extends Fragment {
     private List<StatsOuterData> populateOutRVData(){
         List<StatsOuterData> dataForStats = new ArrayList<>();
         dataForStats.add(new StatsOuterData(R.id.badge_banner));
-        dataForStats.add(new StatsOuterData(R.id.badge_update));
         dataForStats.add(new StatsOuterData(R.id.inner_rv));
-        dataForStats.add(new StatsOuterData(R.id.how_to_use_badge));
-        dataForStats.add(new StatsOuterData(R.id.collectible_explained));
-        dataForStats.add(new StatsOuterData(R.id.collectible));
-        dataForStats.add(new StatsOuterData(R.id.points_toward_collectible));
 
         for(int i = 0; i < dataForStats.size(); i++){
             statsOuterData = dataForStats.get(i);
