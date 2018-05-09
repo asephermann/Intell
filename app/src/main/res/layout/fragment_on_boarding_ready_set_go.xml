@@ -2,36 +2,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.example.sweetseedsapp.fragments.OnBoardingReadySetGoFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/ready"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="50sp"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:layout_marginTop="100dp"
         />
 
     <TextView
         android:id="@+id/set"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:textColor="#fff"
-        android:layout_marginTop="175dp"
+        android:textSize="60sp"
+        android:textColor="#000"
+        android:layout_marginTop="145dp"
+        android:layout_marginStart="175dp"
         />
 
     <TextView
         android:id="@+id/go"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:textColor="#fff"
-        android:layout_marginTop="250dp"
+        android:textSize="70sp"
+        android:textColor="#000"
+        android:layout_gravity="center"
         />
-
 
 </FrameLayout>
