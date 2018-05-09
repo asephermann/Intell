@@ -44,6 +44,7 @@ public class StatsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
         statsRecyclerView = view.findViewById(R.id.stats_rv);
         populateOutRVData();
+        getBadgeList();
         initRecyclerView();
         return view;
     }
