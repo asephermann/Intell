@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:textColor="#000"
-        android:fontFamily="sans-serif-condensed"
         android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
         />
 
     <TextView
@@ -31,9 +31,10 @@
         android:id="@+id/go"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="70sp"
+        android:textSize="85sp"
         android:textColor="#000"
-        android:layout_gravity="center"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="250dp"
         />
 
 </FrameLayout>

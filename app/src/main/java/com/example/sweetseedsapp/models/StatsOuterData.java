@@ -13,6 +13,16 @@ public class StatsOuterData {
     private List<StatsOuterData> statsOuterDataList;
     private List<StatsInnerRVData> statsInnerRVDataList;
 
+    public List<StatsGridViewData> getGridViewData() {
+        return gridViewData;
+    }
+
+    public void setGridViewData(List<StatsGridViewData> gridViewData) {
+        this.gridViewData = gridViewData;
+    }
+
+    private List<StatsGridViewData> gridViewData;
+
 
     public StatsOuterData(int imageView) {
         this.image = imageView;

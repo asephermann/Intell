@@ -55,7 +55,6 @@ public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.St
         public void onBind(StatsInnerRVData statsInnerRVData){
             ImageView badge = itemView.findViewById(R.id.badge);
             badge.setImageResource(statsInnerRVData.getBadge());
-
         }
     }
 
