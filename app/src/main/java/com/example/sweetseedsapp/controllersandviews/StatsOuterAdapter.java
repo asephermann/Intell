@@ -16,6 +16,8 @@ import com.example.sweetseedsapp.models.StatsOuterData;
 
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by vivianbabiryekulumba on 4/24/18.
  */
@@ -24,7 +26,7 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
 
     private List<StatsOuterData> dataForStats;
 
-    public StatsOuterAdapter(List<StatsOuterData> forStats, List<StatsOuterData> dataForStats) {
+    public StatsOuterAdapter(List<StatsOuterData> dataForStats) {
         this.dataForStats = dataForStats;
     }
 
@@ -32,6 +34,7 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
     @Override
     public StatsOuterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.stats_outer_itemview, parent, false);
+        Log.d(TAG, "onCreateViewHolder: " + view);
         return new StatsOuterViewHolder(view);
     }
 
