@@ -3,17 +3,14 @@ package com.example.sweetseedsapp.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
 import com.example.sweetseedsapp.R;
-import com.example.sweetseedsapp.controllersandviews.GridViewAdapter;
 import com.example.sweetseedsapp.controllersandviews.StatsOuterAdapter;
 import com.example.sweetseedsapp.models.StatsGridViewData;
 import com.example.sweetseedsapp.models.StatsInnerRVData;
@@ -58,15 +55,13 @@ public class StatsFragment extends Fragment {
         return view;
     }
 
-    private List<StatsOuterData> populateGridView() {
-        dataForStats.add(new StatsOuterData(R.id.grid_view_badges));
+    private void populateGridView() {
 
         for(int i = 0; i < dataForStats.size(); i ++){
             statsOuterData = dataForStats.get(i);
             statsOuterData.setGridViewData(getGridViewData());
             Log.d(TAG, "populateGridView: " + gridViewData.size());
         }
-        return dataForStats;
     }
 
     private List<StatsGridViewData> getGridViewData(){
@@ -110,7 +105,7 @@ public class StatsFragment extends Fragment {
     private void initRecyclerViews() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         statsRecyclerView.setLayoutManager(layoutManager);
-        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateOutRVData(), dataForStats);
+        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateOutRVData());
         statsRecyclerView.setAdapter(statsOuterAdapter);
         statsOuterAdapter.notifyDataSetChanged();
     }
