@@ -6,6 +6,7 @@
     <ImageView
         android:id="@+id/badge"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="100dp"
+        android:contentDescription="@string/fill" />
 
 </android.support.constraint.ConstraintLayout>

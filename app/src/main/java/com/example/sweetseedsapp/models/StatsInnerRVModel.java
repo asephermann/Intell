@@ -4,12 +4,12 @@ package com.example.sweetseedsapp.models;
  * Created by vivianbabiryekulumba on 4/24/18.
  */
 
-public class StatsInnerRVData {
+public class StatsInnerRVModel {
 
     private int badge;
     private int position;
 
-    public StatsInnerRVData(int badge, int resId) {
+    public StatsInnerRVModel(int badge, int resId) {
         this.badge = badge;
         this.position = resId;
     }

@@ -1,19 +1,17 @@
 package com.example.sweetseedsapp.models;
 
-import android.graphics.drawable.Drawable;
-
 import java.util.List;
 
 /**
  * Created by vivianbabiryekulumba on 5/13/18.
  */
 
-public class StatsGridViewData {
+public class StatsGridViewModel {
 
     private int badge;
     private int position;
 
-    public StatsGridViewData(int badge, int resId) {
+    public StatsGridViewModel(int badge, int resId) {
         this.badge = badge;
         this.position = resId;
     }
@@ -34,13 +32,13 @@ public class StatsGridViewData {
         this.position = position;
     }
 
-    List<StatsGridViewData> gridViewData;
+    List<StatsGridViewModel> gridViewData;
 
-    public List<StatsGridViewData> getGridViewData() {
+    public List<StatsGridViewModel> getGridViewData() {
         return gridViewData;
     }
 
-    public void setGridViewData(List<StatsGridViewData> gridViewData) {
+    public void setGridViewData(List<StatsGridViewModel> gridViewData) {
         this.gridViewData = gridViewData;
     }
 }

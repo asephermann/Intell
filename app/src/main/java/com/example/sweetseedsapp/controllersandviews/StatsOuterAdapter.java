@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.sweetseedsapp.R;
-import com.example.sweetseedsapp.models.StatsGridViewData;
-import com.example.sweetseedsapp.models.StatsOuterData;
+import com.example.sweetseedsapp.models.StatsOuterRVModel;
 
 import java.util.List;
 
@@ -24,31 +23,33 @@ import static android.content.ContentValues.TAG;
 
 public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.StatsOuterViewHolder> {
 
-    private List<StatsOuterData> dataForStats;
+    private List<StatsOuterRVModel> statsOuterDataList;
 
-    public StatsOuterAdapter(List<StatsOuterData> dataForStats) {
-        this.dataForStats = dataForStats;
+    public StatsOuterAdapter(List<StatsOuterRVModel> dataForStats) {
+        this.statsOuterDataList = dataForStats;
+        setHasStableIds(true);
+        Log.d(TAG, "StatsOuterAdapter: " + dataForStats.size());
     }
 
     @NonNull
     @Override
     public StatsOuterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.stats_outer_itemview, parent, false);
-        Log.d(TAG, "onCreateViewHolder: " + view);
+        Log.d(TAG, "onCreateViewHolder: " + viewType);
         return new StatsOuterViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull StatsOuterAdapter.StatsOuterViewHolder holder, int position) {
-        holder.bind(dataForStats.get(position));
+        holder.bind(statsOuterDataList.get(position));
         String TAG = "StatsOuterAdapter";
-        Log.d(TAG, "onBindViewHolder: " + dataForStats.size());
+        Log.d(TAG, "onBindViewHolder: " + statsOuterDataList.size());
     }
-
 
     @Override
     public int getItemCount() {
-        return dataForStats.size();
+        Log.d(TAG, "getItemCount: " + statsOuterDataList.size());
+        return statsOuterDataList.size();
     }
 
     class StatsOuterViewHolder extends RecyclerView.ViewHolder {
@@ -65,8 +66,8 @@ public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.St
             gridRecyclerView = itemView.findViewById(R.id.grid_view_badges);
         }
 
-        void bind(StatsOuterData statsOuterData) {
-            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        void bind(StatsOuterRVModel statsOuterData) {
+            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
             innerRecyclerView.setLayoutManager(layoutManager);
             innerRecyclerView.setAdapter(new StatsInnerAdapter(statsOuterData.getStatsInnerRVDataList()));
 
