@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.controllersandviews.StatsOuterAdapter;
-import com.example.sweetseedsapp.models.StatsGridViewData;
-import com.example.sweetseedsapp.models.StatsInnerRVData;
-import com.example.sweetseedsapp.models.StatsOuterData;
+import com.example.sweetseedsapp.models.StatsGridViewModel;
+import com.example.sweetseedsapp.models.StatsInnerRVModel;
+import com.example.sweetseedsapp.models.StatsOuterRVModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +27,9 @@ public class StatsFragment extends Fragment {
 
     private static String TAG = "StatsFragment";
     RecyclerView statsRecyclerView;
-    StatsOuterData statsOuterData;
-    List<StatsOuterData> dataForStats = new ArrayList<>();
-    List<StatsGridViewData> gridViewData = new ArrayList<>();
+    StatsOuterRVModel statsOuterData;
+    List<StatsOuterRVModel> dataForStats = new ArrayList<>();
+    List<StatsGridViewModel> gridViewData = new ArrayList<>();
 
     public StatsFragment() {
         // Required empty public constructor
@@ -58,27 +58,30 @@ public class StatsFragment extends Fragment {
     private void populateGridView() {
 
         for(int i = 0; i < dataForStats.size(); i ++){
+            Log.d(TAG, "populateGridView: " + dataForStats.size());
             statsOuterData = dataForStats.get(i);
             statsOuterData.setGridViewData(getGridViewData());
-            Log.d(TAG, "populateGridView: " + gridViewData.size());
+
         }
     }
 
-    private List<StatsGridViewData> getGridViewData(){
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_one, 0));
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_two, 1));
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_three, 2));
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_four, 3));
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_five, 4));
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_six, 5));
-        gridViewData.add(new StatsGridViewData(R.drawable.badge_seven, 6));
+    private List<StatsGridViewModel> getGridViewData(){
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_one, 0));
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_two, 1));
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_three, 2));
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_four, 3));
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_five, 4));
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_six, 5));
+        gridViewData.add(new StatsGridViewModel(R.drawable.badge_seven, 6));
+
+        Log.d(TAG, "getGridViewData: " + gridViewData.size());
         return gridViewData;
     }
 
 
-    private List<StatsOuterData> populateOutRVData() {
-        dataForStats.add(new StatsOuterData(R.id.badge_status_banner));
-        dataForStats.add(new StatsOuterData(R.id.inner_rv));
+    private List<StatsOuterRVModel> populateOutRVData() {
+        dataForStats.add(new StatsOuterRVModel(R.id.badge_status_banner));
+        dataForStats.add(new StatsOuterRVModel(R.id.inner_rv));
 
         for (int i = 0; i < dataForStats.size(); i++) {
             statsOuterData = dataForStats.get(i);
@@ -89,16 +92,10 @@ public class StatsFragment extends Fragment {
     }
 
 
-    private List<StatsInnerRVData> getBadgeList() {
-        List<StatsInnerRVData> badges = new ArrayList<>();
-        badges.add(new StatsInnerRVData(R.drawable.badge_one, 1));
-        badges.add(new StatsInnerRVData(R.drawable.badge_two, 2));
-//        badges.add(new StatsInnerRVData(R.drawable.badge_three, 3));
-//        badges.add(new StatsInnerRVData(R.drawable.badge_four, 4));
-//        badges.add(new StatsInnerRVData(R.drawable.badge_five, 5));
-//        badges.add(new StatsInnerRVData(R.drawable.badge_six, 6));
-//        badges.add(new StatsInnerRVData(R.drawable.badge_seven, 7));
-//        Log.d(TAG, "getBadgeList: " + badges);
+    private List<StatsInnerRVModel> getBadgeList() {
+        List<StatsInnerRVModel> badges = new ArrayList<>();
+        badges.add(new StatsInnerRVModel(R.drawable.badge_one, 0));
+        badges.add(new StatsInnerRVModel(R.drawable.badge_two, 1));
         return badges;
     }
 

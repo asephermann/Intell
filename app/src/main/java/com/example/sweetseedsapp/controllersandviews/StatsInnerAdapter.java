@@ -1,19 +1,14 @@
 package com.example.sweetseedsapp.controllersandviews;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.sweetseedsapp.R;
-import com.example.sweetseedsapp.models.StatsInnerRVData;
-import com.example.sweetseedsapp.models.StatsOuterData;
+import com.example.sweetseedsapp.models.StatsInnerRVModel;
 
 import java.util.List;
 
@@ -23,9 +18,9 @@ import java.util.List;
 
 public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.StatsInnerViewHolder> {
 
-    private List<StatsInnerRVData> statsInnerDataList;
+    private List<StatsInnerRVModel> statsInnerDataList;
 
-    public StatsInnerAdapter(List<StatsInnerRVData> statsInnerDataList) {
+    public StatsInnerAdapter(List<StatsInnerRVModel> statsInnerDataList) {
         this.statsInnerDataList = statsInnerDataList;
     }
 
@@ -52,7 +47,7 @@ public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.St
             super(inflateLayout(itemView));
         }
 
-        public void onBind(StatsInnerRVData statsInnerRVData){
+        public void onBind(StatsInnerRVModel statsInnerRVData){
             ImageView badge = itemView.findViewById(R.id.badge);
             badge.setImageResource(statsInnerRVData.getBadge());
         }

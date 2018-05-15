@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/games_shuffler_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/fill"
+            />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentPadding="15dp"
+        app:cardCornerRadius="20dp">
+
+    <ImageView
+        android:id="@+id/games_feat_iv2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/games_feat_iv1"
+        android:layout_marginStart="10dp"
+        android:background="#5439"
+        android:contentDescription="@string/fill" />
+
+    <ImageView
+        android:id="@+id/games_feat_iv1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/games_feat_iv2"
+        android:layout_centerVertical="true"
+        android:background="#346"
+        android:layout_marginStart="75dp"
+        android:contentDescription="@string/fill" />
+
+    <ImageView
+        android:id="@+id/games_feat_iv3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/games_feat_iv1"
+        android:layout_toStartOf="@+id/games_feat_iv4"
+        android:background="#452"
+        android:layout_marginStart="175dp"
+        android:contentDescription="@string/fill" />
+
+    <ImageView
+        android:id="@+id/games_feat_iv4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/games_feat_iv3"
+        android:layout_marginEnd="11dp"
+        android:background="#000"
+        android:layout_marginStart="275dp"
+        android:contentDescription="@string/fill" />
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
