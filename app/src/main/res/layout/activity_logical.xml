@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.sweetseedsapp.activities.LogicalActivity">
 
-    <TextView
+    <GridView
         android:id="@+id/logical_tx"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:numColumns="3"
         android:text="Logical"/>
+
 
 </android.support.constraint.ConstraintLayout>

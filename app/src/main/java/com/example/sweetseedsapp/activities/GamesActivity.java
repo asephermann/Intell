@@ -1,16 +1,12 @@
 package com.example.sweetseedsapp.activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.controllersandviews.GamesAdapter;
 import com.example.sweetseedsapp.models.GamesModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +27,6 @@ public class GamesActivity extends AppCompatActivity {
         GamesAdapter gamesAdapter = new GamesAdapter(populateGamesActivity());
         gamesAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(gamesAdapter);
-
     }
 
     private List<GamesModel> populateGamesActivity() {
