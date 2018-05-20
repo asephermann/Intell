@@ -1,24 +1,30 @@
 package com.example.sweetseedsapp.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.activities.BodilyKinActivity;
+import com.example.sweetseedsapp.activities.ExistentialActivity;
+import com.example.sweetseedsapp.activities.InterpersonalActivity;
+import com.example.sweetseedsapp.activities.IntrapersonalActivity;
+import com.example.sweetseedsapp.activities.LinguisticActivity;
+import com.example.sweetseedsapp.activities.LogicalActivity;
+import com.example.sweetseedsapp.activities.MusicalActivity;
+import com.example.sweetseedsapp.activities.NaturalistActivity;
+import com.example.sweetseedsapp.activities.SpatialActivity;
 import com.example.sweetseedsapp.controllersandviews.GamesAdapter;
 import com.example.sweetseedsapp.models.GamesModel;
-import com.example.sweetseedsapp.models.StatsOuterRVModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 
 /**
@@ -34,7 +40,7 @@ public class GamesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static Fragment newInstance(){
+    public static Fragment newInstance() {
         return new GamesFragment();
     }
 
@@ -51,6 +57,44 @@ public class GamesFragment extends Fragment {
         GamesAdapter gamesAdapter = new GamesAdapter(populateGamesFragment());
         gamesAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(gamesAdapter);
+
+        switch (gamesAdapter.getItemCount()){
+            case 0:
+                Intent intent = new Intent(getActivity(), BodilyKinActivity.class);
+                startActivity(intent);
+                break;
+            case 1:
+                Intent intent1 = new Intent(getActivity(), SpatialActivity.class);
+                startActivity(intent1);
+                break;
+            case 2:
+                Intent intent2 = new Intent(getActivity(), LogicalActivity.class);
+                startActivity(intent2);
+                break;
+            case 3:
+                Intent intent3 = new Intent(getActivity(), NaturalistActivity.class);
+                startActivity(intent3);
+                break;
+            case 4:
+                Intent intent4 = new Intent(getActivity(), MusicalActivity.class);
+                startActivity(intent4);
+                break;
+            case 5:
+                Intent intent5 = new Intent(getActivity(), InterpersonalActivity.class);
+                startActivity(intent5);
+                break;
+            case 6:
+                Intent intent6 = new Intent(getActivity(), IntrapersonalActivity.class);
+                startActivity(intent6);
+                break;
+            case 7:
+                Intent intent7 = new Intent(getActivity(), LinguisticActivity.class);
+                startActivity(intent7);
+                break;
+            case 8:
+                Intent intent8 = new Intent(getActivity(), ExistentialActivity.class);
+                startActivity(intent8);
+        }
         return view;
     }
 
@@ -67,9 +111,7 @@ public class GamesFragment extends Fragment {
 
         for (int i = 0; i < dataForGames.size(); i++) {
             gamesModel = dataForGames.get(i);
-            Log.d(TAG, "populateOutRVData: " + dataForGames.get(i));
         }
         return dataForGames;
     }
-
 }
