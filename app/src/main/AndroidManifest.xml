@@ -9,16 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
-        </activity>
+        <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.OnBoardingActivity">
-        </activity>
+        <activity android:name=".activities.OnBoardingActivity" />
+        <activity android:name=".activities.BodilyKinActivity" />
+        <activity android:name=".activities.SpatialActivity" />
+        <activity android:name=".activities.LogicalActivity" />
+        <activity android:name=".activities.NaturalistActivity" />
+        <activity android:name=".activities.MusicalActivity" />
+        <activity android:name=".activities.InterpersonalActivity" />
+        <activity android:name=".activities.IntrapersonalActivity" />
+        <activity android:name=".activities.LinguisticActivity" />
+        <activity android:name=".activities.ExistentialActivity" />
+        <activity android:name=".activities.GamesActivity"></activity>
     </application>
 
 </manifest>

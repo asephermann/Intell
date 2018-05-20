@@ -18,10 +18,10 @@ import java.util.List;
 
 public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.StatsInnerViewHolder> {
 
-    private List<StatsInnerRVModel> statsInnerDataList;
+    private List<StatsInnerRVModel> statsInnerData;
 
     public StatsInnerAdapter(List<StatsInnerRVModel> statsInnerDataList) {
-        this.statsInnerDataList = statsInnerDataList;
+        this.statsInnerData = statsInnerDataList;
     }
 
     @NonNull
@@ -32,13 +32,13 @@ public class StatsInnerAdapter extends RecyclerView.Adapter<StatsInnerAdapter.St
 
     @Override
     public void onBindViewHolder(@NonNull StatsInnerAdapter.StatsInnerViewHolder holder, int position) {
-        holder.onBind(statsInnerDataList.get(position));
+        holder.onBind(statsInnerData.get(position));
     }
 
 
     @Override
     public int getItemCount() {
-        return statsInnerDataList.size();
+        return statsInnerData.size();
     }
 
     public class StatsInnerViewHolder extends RecyclerView.ViewHolder {

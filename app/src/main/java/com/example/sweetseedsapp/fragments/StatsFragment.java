@@ -19,15 +19,18 @@ import com.example.sweetseedsapp.models.StatsOuterRVModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StatsFragment extends Fragment {
+public class StatsFragment extends Fragment implements Runnable{
 
     private static String TAG = "StatsFragment";
     RecyclerView statsRecyclerView;
     StatsOuterRVModel statsOuterData;
+    StatsInnerRVModel statsInnerRVModel;
     List<StatsOuterRVModel> dataForStats = new ArrayList<>();
     List<StatsGridViewModel> gridViewData = new ArrayList<>();
 
@@ -48,24 +51,45 @@ public class StatsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
         statsRecyclerView = view.findViewById(R.id.stats_rv);
 
-        populateOutRVData();
-        getBadgeList();
-        initRecyclerViews();
-        populateGridView();
+        //For stats recycler view
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        statsRecyclerView.setLayoutManager(layoutManager);
+        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateOutRVData());
+        statsRecyclerView.setAdapter(statsOuterAdapter);
+
+        Thread stats_threads = new Thread(new StatsFragment());
+        stats_threads.start();
+
         return view;
     }
 
-    private void populateGridView() {
 
-        for(int i = 0; i < dataForStats.size(); i ++){
-            Log.d(TAG, "populateGridView: " + dataForStats.size());
+    private List<StatsOuterRVModel> populateOutRVData() {
+
+        //For 2 down image view and nested recycler view
+        dataForStats.add(new StatsOuterRVModel(R.id.badge_status_banner));
+        dataForStats.add(new StatsOuterRVModel(R.id.inner_rv));
+        dataForStats.add(new StatsOuterRVModel(R.id.grid_view_badges));
+
+        //Possibly implement multi threading here!
+
+        for(int i = 0; i < dataForStats.size(); i++){
             statsOuterData = dataForStats.get(i);
-            statsOuterData.setGridViewData(getGridViewData());
-
         }
+        return dataForStats;
     }
 
-    private List<StatsGridViewModel> getGridViewData(){
+
+    private List<StatsInnerRVModel> getBadgeList() {
+        List<StatsInnerRVModel> badges = new ArrayList<>();
+
+        badges.add(new StatsInnerRVModel(R.drawable.badge_one, 0));
+        badges.add(new StatsInnerRVModel(R.drawable.badge_two, 1));
+        return badges;
+    }
+
+
+    private List<StatsGridViewModel> getGridViewData() {
         gridViewData.add(new StatsGridViewModel(R.drawable.badge_one, 0));
         gridViewData.add(new StatsGridViewModel(R.drawable.badge_two, 1));
         gridViewData.add(new StatsGridViewModel(R.drawable.badge_three, 2));
@@ -78,34 +102,17 @@ public class StatsFragment extends Fragment {
         return gridViewData;
     }
 
+    @Override
+    public void run() {
 
-    private List<StatsOuterRVModel> populateOutRVData() {
-        dataForStats.add(new StatsOuterRVModel(R.id.badge_status_banner));
-        dataForStats.add(new StatsOuterRVModel(R.id.inner_rv));
-
-        for (int i = 0; i < dataForStats.size(); i++) {
-            statsOuterData = dataForStats.get(i);
+        try{
             statsOuterData.setStatsInnerRVDataList(getBadgeList());
-            Log.d(TAG, "populateOutRVData: " + dataForStats.get(i));
+            statsOuterData.setGridViewData(getGridViewData());
+        }catch (NullPointerException e){
+            statsInnerRVModel.getBadge();
+            e.printStackTrace();
         }
-        return dataForStats;
     }
-
-
-    private List<StatsInnerRVModel> getBadgeList() {
-        List<StatsInnerRVModel> badges = new ArrayList<>();
-        badges.add(new StatsInnerRVModel(R.drawable.badge_one, 0));
-        badges.add(new StatsInnerRVModel(R.drawable.badge_two, 1));
-        return badges;
-    }
-
-    private void initRecyclerViews() {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        statsRecyclerView.setLayoutManager(layoutManager);
-        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateOutRVData());
-        statsRecyclerView.setAdapter(statsOuterAdapter);
-        statsOuterAdapter.notifyDataSetChanged();
-    }
-
 
 }
+

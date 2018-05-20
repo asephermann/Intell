@@ -2,6 +2,7 @@ package com.example.sweetseedsapp.controllersandviews;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,10 @@ import android.widget.ImageView;
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.models.StatsGridViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by vivianbabiryekulumba on 5/13/18.
@@ -18,10 +22,10 @@ import java.util.List;
 
 public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.GridViewHolder> {
 
-    private List<StatsGridViewModel> gridViewData;
+    private List<StatsGridViewModel> gridViewData ;
 
-    GridViewAdapter(List<StatsGridViewModel> gridViewData) {
-        this.gridViewData = gridViewData;
+    GridViewAdapter(List<StatsGridViewModel> gridViewDataList) {
+        this.gridViewData = gridViewDataList;
     }
 
 
@@ -39,20 +43,20 @@ public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.GridVi
 
     @Override
     public int getItemCount() {
+        Log.d(TAG, "getItemCount: " + gridViewData.size());
         return gridViewData.size();
     }
 
     class GridViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView badge;
-
         GridViewHolder(View itemView) {
             super(itemView);
-            badge = itemView.findViewById(R.id.grid_view_iv);
         }
 
         void onBind(StatsGridViewModel statsGridViewData) {
+            ImageView badge = itemView.findViewById(R.id.grid_view_iv);
             badge.setImageResource(statsGridViewData.getBadge());
         }
+
     }
 }

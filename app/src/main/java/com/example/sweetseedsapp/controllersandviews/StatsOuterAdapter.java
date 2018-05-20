@@ -23,59 +23,54 @@ import static android.content.ContentValues.TAG;
 
 public class StatsOuterAdapter extends RecyclerView.Adapter<StatsOuterAdapter.StatsOuterViewHolder> {
 
-    private List<StatsOuterRVModel> statsOuterDataList;
+    private List<StatsOuterRVModel> dataForStats;
+    private RecyclerView innerRecyclerView;
+    private RecyclerView gridRecyclerView;
+    private ImageView badge_status;
 
-    public StatsOuterAdapter(List<StatsOuterRVModel> dataForStats) {
-        this.statsOuterDataList = dataForStats;
-        setHasStableIds(true);
-        Log.d(TAG, "StatsOuterAdapter: " + dataForStats.size());
+
+    public StatsOuterAdapter(List<StatsOuterRVModel> statsOuterDataList) {
+        this.dataForStats = statsOuterDataList;
     }
 
     @NonNull
     @Override
     public StatsOuterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.stats_outer_itemview, parent, false);
-        Log.d(TAG, "onCreateViewHolder: " + viewType);
+        badge_status = view.findViewById(R.id.badge_status_banner);
+        innerRecyclerView = view.findViewById(R.id.inner_rv);
+        gridRecyclerView = view.findViewById(R.id.grid_view_badges);
         return new StatsOuterViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull StatsOuterAdapter.StatsOuterViewHolder holder, int position) {
-        holder.bind(statsOuterDataList.get(position));
-        String TAG = "StatsOuterAdapter";
-        Log.d(TAG, "onBindViewHolder: " + statsOuterDataList.size());
+        holder.bind(dataForStats.get(position));
+        Log.d(TAG, "onBindViewHolder: " + dataForStats.size());
     }
 
     @Override
     public int getItemCount() {
-        Log.d(TAG, "getItemCount: " + statsOuterDataList.size());
-        return statsOuterDataList.size();
+        return dataForStats.size();
     }
 
     class StatsOuterViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView badgeBanner;
-        RecyclerView innerRecyclerView;
-        RecyclerView gridRecyclerView;
-
-
         StatsOuterViewHolder(View itemView) {
             super(itemView);
-            badgeBanner = itemView.findViewById(R.id.badge_status_banner);
-            innerRecyclerView = itemView.findViewById(R.id.inner_rv);
-            gridRecyclerView = itemView.findViewById(R.id.grid_view_badges);
         }
 
         void bind(StatsOuterRVModel statsOuterData) {
+            //For the outer data in the stats frag.
             LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
             innerRecyclerView.setLayoutManager(layoutManager);
             innerRecyclerView.setAdapter(new StatsInnerAdapter(statsOuterData.getStatsInnerRVDataList()));
 
+            //For the grid recycler view
             GridLayoutManager gridLayoutManager = new GridLayoutManager(itemView.getContext(), 3);
             gridRecyclerView.setLayoutManager(gridLayoutManager);
             gridRecyclerView.setAdapter(new GridViewAdapter(statsOuterData.getGridViewData()));
             gridRecyclerView.setHasFixedSize(false);
-
         }
     }
 }
