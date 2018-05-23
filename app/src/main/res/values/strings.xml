@@ -19,4 +19,6 @@
     <string name="home_stat2">Resume Game</string>
     <string name="home_stat3">Restart Game</string>
     <string name="home_stat4">Focus Category : Existential</string>
+    <string name="round_text">clubs v.s stones</string>
+    <string name="level_one">Level One</string>
 </resources>
