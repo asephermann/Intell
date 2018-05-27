@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/round_text"
         android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/stone6"
+        android:id="@+id/club1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="140dp"
@@ -83,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/stone7"
+        android:id="@+id/club2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="76dp"
@@ -93,7 +94,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/stone8"
+        android:id="@+id/club3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -103,7 +104,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/stone9"
+        android:id="@+id/club4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -113,7 +114,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/stone10"
+        android:id="@+id/club5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="108dp"
@@ -123,6 +124,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/grid_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -142,116 +144,116 @@
             android:id="@+id/topleft"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_row="0">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage1"
+            <TextView
+                android:id="@+id/image_tv1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/middleleft"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage2"
+            <TextView
+                android:id="@+id/image_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/bottomleft"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage3"
+            <TextView
+                android:id="@+id/image_tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/topmiddle"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage4"
+            <TextView
+                android:id="@+id/image_tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/middle"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage5"
+            <TextView
+                android:id="@+id/image_tv5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                 />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/middlebottom"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage6"
+            <TextView
+                android:id="@+id/image_tv6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                 />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/topright"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage7"
+            <TextView
+                android:id="@+id/image_tv7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/middleright"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage8"
+            <TextView
+                android:id="@+id/image_tv8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                 />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/bottomright"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape">
+            android:background="@drawable/board">
 
-            <ImageView
-                android:id="@+id/myimage9"
+            <TextView
+                android:id="@+id/image_tv9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/board" />
+                 />
         </LinearLayout>
 
     </GridLayout>
