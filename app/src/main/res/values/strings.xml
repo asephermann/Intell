@@ -21,4 +21,6 @@
     <string name="home_stat4">Focus Category : Existential</string>
     <string name="round_text">clubs v.s stones</string>
     <string name="level_one">Level One</string>
+    <string name="tie">Tie game</string>
+    <string name="drop">The drop was handled.</string>
 </resources>
