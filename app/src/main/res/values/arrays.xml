@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="resicon">
+        <item>@drawable/x</item>
+        <item>@drawable/x</item>
+        <item>@drawable/x</item>
+        <item>@drawable/x</item>
+        <item>@drawable/x</item>
+        <item>@drawable/o</item>
+        <item>@drawable/o</item>
+        <item>@drawable/o</item>
+        <item>@drawable/o</item>
+        <item>@drawable/o</item>
+    </array>
+</resources>
