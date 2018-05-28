@@ -21,8 +21,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class LogicalActivity extends AppCompatActivity {
 
     private static final String TAG = "LogicalActivity";
-    private static LogicalModel logicalModel;
-    private static GridLayout mGrid;
 
     //Views for stones and clubs or "X" and "O".
     private static ImageView stone1;
@@ -41,7 +39,7 @@ public class LogicalActivity extends AppCompatActivity {
     Typeface typeface;
 
     //For the textViews inside of the boardViews.
-    private static String[] boardNumbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
+//    private static String[] boardNumbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
     private static int[] boardViews = {R.id.image_tv1, R.id.image_tv2, R.id.image_tv3, R.id.image_tv4, R.id.image_tv5, R.id.image_tv6, R.id.image_tv7, R.id.image_tv8, R.id.image_tv9};
 
     //Used for determining if the game is over
@@ -66,7 +64,6 @@ public class LogicalActivity extends AppCompatActivity {
         stone1.setOnLongClickListener(new LongPressListener());
         stone1.setOnDragListener(new DragListener());
 
-
         stone2 = findViewById(R.id.stone2);
         stone2.setOnLongClickListener(new LongPressListener());
         stone2.setOnDragListener(new DragListener());
@@ -75,11 +72,9 @@ public class LogicalActivity extends AppCompatActivity {
         stone3.setOnLongClickListener(new LongPressListener());
         stone3.setOnDragListener(new DragListener());
 
-
         stone4 = findViewById(R.id.stone4);
         stone4.setOnLongClickListener(new LongPressListener());
         stone4.setOnDragListener(new DragListener());
-
 
         stone5 = findViewById(R.id.stone5);
         stone5.setOnLongClickListener(new LongPressListener());
@@ -88,7 +83,6 @@ public class LogicalActivity extends AppCompatActivity {
         club1 = findViewById(R.id.club1);
         club1.setOnLongClickListener(new LongPressListener());
         club1.setOnDragListener(new DragListener());
-
 
         club2 = findViewById(R.id.club2);
         club2.setOnLongClickListener(new LongPressListener());
@@ -109,17 +103,18 @@ public class LogicalActivity extends AppCompatActivity {
         round_text = findViewById(R.id.round_text);
         round_text.setTypeface(typeface);
 
+
+
         //Initiate the game by getting the human spot.
         //If the game is not over and it's not a tie, evaluate the board.
         //Repeat if the game is not over.
         initGame();
 
-        do {
-            getDragSpot();
-            if (!gameOver() && !tie()) {
-                evalBoard();
-            }
-        } while (!gameOver() && !tie());
+//        do {
+//            if (!gameOver() && !tie()) {
+//                evalBoard();
+//            }
+//        } while (!gameOver() && !tie());
         System.out.print("Game over\n");
 
     }
@@ -131,105 +126,47 @@ public class LogicalActivity extends AppCompatActivity {
         Log.d(TAG, "initGame: " + currentPlayer + currentState);
     }
 
-    private static String nextPlayer() {
-        if (currentPlayer.equals("X")) {
-            return "O";
-        } else {
-            return "X";
-        }
-    }
 
-    //getDragSpot() becomes onTouch and onDrag listeners for the drag and drop motion.
-    private static void getDragSpot() {
-        boolean validInput = false;  // for input validation
-        round_text.setText("Drag and Drop:\n");
-        do {
-            int i = 0;
-            if (Integer.parseInt(boardNumbers[i]) != gamePieces[i]) {
-                boardNumbers[i] = String.valueOf(gamePieces[i]);  // update game-board content
-                validInput = true;  // input okay, exit loop
-            }
-            currentPlayer = nextPlayer();  // sticks play first
-        } while (!validInput);  // repeat until input is valid
-        Log.d(TAG, "getDragSpot: ran, current player is next player");
+//    private static void evalBoard() {
+//        boolean foundSpot;
+//
+//        do {
+//            if (board[4].equals("4")) {
+//                board[4] = "O";
+//                foundSpot = true;
+//            } else {
+//                int spot = getBestMove();
+//                if (spot != -1 && (!board[spot].equals("X") && !board[spot].equals("O"))) {
+//                    foundSpot = true;
+//                    board[spot] = "O";
+//                } else {
+//                    foundSpot = false;
+//                }
+//            }
+//        } while (!foundSpot);
+//        printBoard();
+//    }
 
-    }
-
-    private static void evalBoard() {
-        boolean foundSpot;
-        do {
-            if (boardNumbers[4].equals("4")) {
-                boardNumbers[4] = "O";
-                foundSpot = true;
-            } else {
-                int spot = anticipatedMove();
-                if (spot != -1 && (!boardNumbers[spot].equals("X") && !boardNumbers[spot].equals("O"))) {
-                    foundSpot = true;
-                    boardNumbers[spot] = "O";
-                } else {
-                    foundSpot = false;
-                }
-            }
-        } while (!foundSpot);
-    }
-
-    private static boolean gameOver() {
-        //When the currentState is 9 or the same length of the boardNumbers.
-        return boardNumbers[0].equals(boardNumbers[1]) && boardNumbers[1].equals(boardNumbers[2]) ||
-                boardNumbers[3].equals(boardNumbers[4]) && boardNumbers[4].equals(boardNumbers[5]) ||
-                boardNumbers[6].equals(boardNumbers[7]) && boardNumbers[7].equals(boardNumbers[8]) ||
-                boardNumbers[0].equals(boardNumbers[3]) && boardNumbers[3].equals(boardNumbers[6]) ||
-                boardNumbers[1].equals(boardNumbers[4]) && boardNumbers[4].equals(boardNumbers[7]) ||
-                boardNumbers[2].equals(boardNumbers[5]) && boardNumbers[5].equals(boardNumbers[8]) ||
-                boardNumbers[0].equals(boardNumbers[4]) && boardNumbers[4].equals(boardNumbers[8]) ||
-                boardNumbers[2].equals(boardNumbers[4]) && boardNumbers[4].equals(boardNumbers[6]);
-    }
-
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private static int anticipatedMove() {
-        ArrayList<String> availableSpaces = new ArrayList<>();
-        boolean foundBestMove = false;
-        int spot = 100;
-        for (String s : boardNumbers) {
-            if (!s.equals("X") && !s.equals("O")) {
-                availableSpaces.add(s);
-            }
-        }
-        for (String as : availableSpaces) {
-            spot = Integer.parseInt(as);
-            boardNumbers[spot] = "O";
-            if (gameOver()) {
-                foundBestMove = true;
-                boardNumbers[spot] = as;
-                return spot;
-            } else {
-                boardNumbers[spot] = "X";
-                if (gameOver()) {
-                    foundBestMove = true;
-                    boardNumbers[spot] = as;
-                    return spot;
-                } else {
-                    boardNumbers[spot] = as;
-                }
-            }
-        }
-        if (foundBestMove) {
-            round_text.setText(availableSpaces.size());
-            return spot;
-        } else {
-            return ThreadLocalRandom.current().nextInt(0, availableSpaces.size() + 1);
-        }
-    }
-
-
-    private static boolean tie() {
-        //If there are no more available spaces on the boardNumbers and we've reached gameOver(), it's a tie.
-        if (currentState == boardNumbers.length) {
-            round_text.setText(R.string.tie);
-            return true;
-        }
-        return false;
-    }
+//    private static boolean gameOver() {
+//        //When the currentState is 9 or the same length of the boardNumbers.
+//        return boardViews[0] == (boardViews[1]) && boardViews[1] == (boardViews[2]) ||
+//                boardViews[3] == (boardViews[4]) && boardViews[4] == (boardViews[5]) ||
+//                boardViews[6] == (boardViews[7]) && boardViews[7] == (boardViews[8]) ||
+//                boardViews[0] == (boardViews[3]) && boardViews[3] == (boardViews[6]) ||
+//                boardViews[1] == (boardViews[4]) && boardViews[4] == (boardViews[7]) ||
+//                boardViews[2] == (boardViews[5]) && boardViews[5] == (boardViews[8]) ||
+//                boardViews[0] == (boardViews[4]) && boardViews[4] == (boardViews[8]) ||
+//                boardViews[2] == (boardViews[4]) && boardViews[4] == (boardViews[6]);
+//    }
+//
+//
+//    private static boolean tie() {
+//        //If there are no more available spaces on the boardNumbers and we've reached gameOver(), it's a tie.
+//        if (currentState == boardViews.length) {
+//            round_text.setText(R.string.tie);
+//            return true;
+//        }
+//        return false;
+//    }
 
 }
