@@ -1,30 +1,14 @@
 package com.example.sweetseedsapp.activities;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.ClipDescription;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.DragEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.controllersandviews.DragListener;
@@ -32,9 +16,7 @@ import com.example.sweetseedsapp.controllersandviews.LongPressListener;
 import com.example.sweetseedsapp.models.LogicalModel;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class LogicalActivity extends AppCompatActivity {
 
@@ -133,11 +115,11 @@ public class LogicalActivity extends AppCompatActivity {
         initGame();
 
         do {
-            getHumanSpot();
-            if (!gameIsOver() && !tie()) {
+            getDragSpot();
+            if (!gameOver() && !tie()) {
                 evalBoard();
             }
-        } while (!gameIsOver() && !tie());
+        } while (!gameOver() && !tie());
         System.out.print("Game over\n");
 
     }
@@ -157,8 +139,8 @@ public class LogicalActivity extends AppCompatActivity {
         }
     }
 
-    //getHumanSpot() becomes onTouch and onDrag listeners for the drag and drop motion.
-    private static void getHumanSpot() {
+    //getDragSpot() becomes onTouch and onDrag listeners for the drag and drop motion.
+    private static void getDragSpot() {
         boolean validInput = false;  // for input validation
         round_text.setText("Drag and Drop:\n");
         do {
@@ -169,7 +151,7 @@ public class LogicalActivity extends AppCompatActivity {
             }
             currentPlayer = nextPlayer();  // sticks play first
         } while (!validInput);  // repeat until input is valid
-        Log.d(TAG, "getHumanSpot: ran, current player is next player");
+        Log.d(TAG, "getDragSpot: ran, current player is next player");
 
     }
 
@@ -180,7 +162,7 @@ public class LogicalActivity extends AppCompatActivity {
                 boardNumbers[4] = "O";
                 foundSpot = true;
             } else {
-                int spot = getBestMove();
+                int spot = anticipatedMove();
                 if (spot != -1 && (!boardNumbers[spot].equals("X") && !boardNumbers[spot].equals("O"))) {
                     foundSpot = true;
                     boardNumbers[spot] = "O";
@@ -191,7 +173,7 @@ public class LogicalActivity extends AppCompatActivity {
         } while (!foundSpot);
     }
 
-    private static boolean gameIsOver() {
+    private static boolean gameOver() {
         //When the currentState is 9 or the same length of the boardNumbers.
         return boardNumbers[0].equals(boardNumbers[1]) && boardNumbers[1].equals(boardNumbers[2]) ||
                 boardNumbers[3].equals(boardNumbers[4]) && boardNumbers[4].equals(boardNumbers[5]) ||
@@ -205,7 +187,7 @@ public class LogicalActivity extends AppCompatActivity {
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private static int getBestMove() {
+    private static int anticipatedMove() {
         ArrayList<String> availableSpaces = new ArrayList<>();
         boolean foundBestMove = false;
         int spot = 100;
@@ -217,13 +199,13 @@ public class LogicalActivity extends AppCompatActivity {
         for (String as : availableSpaces) {
             spot = Integer.parseInt(as);
             boardNumbers[spot] = "O";
-            if (gameIsOver()) {
+            if (gameOver()) {
                 foundBestMove = true;
                 boardNumbers[spot] = as;
                 return spot;
             } else {
                 boardNumbers[spot] = "X";
-                if (gameIsOver()) {
+                if (gameOver()) {
                     foundBestMove = true;
                     boardNumbers[spot] = as;
                     return spot;
@@ -242,7 +224,7 @@ public class LogicalActivity extends AppCompatActivity {
 
 
     private static boolean tie() {
-        //If there are no more available spaces on the boardNumbers and we've reached gameIsOver(), it's a tie.
+        //If there are no more available spaces on the boardNumbers and we've reached gameOver(), it's a tie.
         if (currentState == boardNumbers.length) {
             round_text.setText(R.string.tie);
             return true;
