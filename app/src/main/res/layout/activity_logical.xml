@@ -142,9 +142,9 @@
 
         <LinearLayout
             android:id="@+id/topleft"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#A0A0A0">
 
             <TextView
                 android:id="@+id/image_tv1"
@@ -154,9 +154,9 @@
 
         <LinearLayout
             android:id="@+id/middleleft"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#000">
 
             <TextView
                 android:id="@+id/image_tv2"
@@ -167,9 +167,9 @@
 
         <LinearLayout
             android:id="@+id/bottomleft"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#A0A0A0">
 
             <TextView
                 android:id="@+id/image_tv3"
@@ -180,9 +180,9 @@
 
         <LinearLayout
             android:id="@+id/topmiddle"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#000">
 
             <TextView
                 android:id="@+id/image_tv4"
@@ -193,9 +193,9 @@
 
         <LinearLayout
             android:id="@+id/middle"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#A0A0A0">
 
             <TextView
                 android:id="@+id/image_tv5"
@@ -206,9 +206,9 @@
 
         <LinearLayout
             android:id="@+id/middlebottom"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#000">
 
             <TextView
                 android:id="@+id/image_tv6"
@@ -219,9 +219,9 @@
 
         <LinearLayout
             android:id="@+id/topright"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#A0A0A0">
 
             <TextView
                 android:id="@+id/image_tv7"
@@ -232,9 +232,9 @@
 
         <LinearLayout
             android:id="@+id/middleright"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#000">
 
             <TextView
                 android:id="@+id/image_tv8"
@@ -245,9 +245,9 @@
 
         <LinearLayout
             android:id="@+id/bottomright"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/board">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#A0A0A0">
 
             <TextView
                 android:id="@+id/image_tv9"

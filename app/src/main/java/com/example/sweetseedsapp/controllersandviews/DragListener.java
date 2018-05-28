@@ -3,12 +3,20 @@ package com.example.sweetseedsapp.controllersandviews;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.GridLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
+
+import com.example.sweetseedsapp.R;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -25,92 +33,84 @@ public class DragListener implements View.OnDragListener {
 
     @Override
     public boolean onDrag(View v, DragEvent event) {
-        final View view = (View) event.getLocalState();
-        switch (event.getAction()) {
+        // Defines a variable to store the action type for the incoming event
+        int action = event.getAction();
+        // Handles each of the expected events
+        switch (action) {
+
+
+            case DragEvent.ACTION_DRAG_STARTED:
+
+
+                // Determines if this View can accept the dragged data
+                if (event.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+                    // applies a blue color tint to the View to indicate that it can accept the data
+                    v.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+                    // Invalidate the view to force a redraw in the new tint
+                    v.invalidate();
+                    // returns true to indicate that the View can accept the dragged data.
+                    return true;
+                }
+                // Returns false. During the current drag and drop operation, this View will
+                // not receive events again until ACTION_DRAG_ENDED is sent.
+                return false;
+
+            case DragEvent.ACTION_DRAG_ENTERED:
+
+
+                // Applies a YELLOW or any color tint to the View. Return true; the return value is ignored.
+                v.getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_IN);
+                // Invalidate the view to force a redraw in the new tint
+                v.invalidate();
+                return true;
+
+
             case DragEvent.ACTION_DRAG_LOCATION:
-                // do nothing if hovering above own position
-                if (view == v) return true;
-                // get the new list index
-                final int index = calculateNewIndex(event.getX(), event.getY());
+                // Ignore the event
+                return true;
 
-                final int scrollY = mScrollView.getScrollY();
-                final Rect rect = new Rect();
-                mScrollView.getHitRect(rect);
 
-                if (event.getY() -  scrollY > mScrollView.getBottom() - 250) {
-                    startScrolling(scrollY, mGrid.getHeight());
-                } else if (event.getY() - scrollY < mScrollView.getTop() + 250) {
-                    startScrolling(scrollY, 0);
-                } else {
-                    stopScrolling();
-                }
+            case DragEvent.ACTION_DRAG_EXITED:
 
-                // remove the view from the old position
-                mGrid.removeView(view);
-                // and push to the new
-                mGrid.addView(view, index);
-                break;
+
+                // Re-sets the color tint to blue, if you had set the BLUE color or any color in ACTION_DRAG_STARTED. Returns true; the return value is ignored.
+                v.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+                //If u had not provided any color in ACTION_DRAG_STARTED then clear color filter.
+                v.getBackground().clearColorFilter();
+                // Invalidate the view to force a redraw in the new tint
+                v.invalidate();
+                return true;
             case DragEvent.ACTION_DROP:
-                view.setVisibility(View.VISIBLE);
-                break;
+                // Gets the item containing the dragged data
+                ClipData.Item item = event.getClipData().getItemAt(0);
+                // Gets the text data from the item.
+                String dragData = item.getText().toString();
+                // Displays a message containing the dragged data.
+//                Toast.makeText(this, .getString(R.string.drag) + dragData, Toast.LENGTH_SHORT).show();
+                // Turns off any color tints
+                v.getBackground().clearColorFilter();
+                // Invalidates the view to force a redraw
+                v.invalidate();
+                // Returns true. DragEvent.getResult() will return true.
+                return true;
             case DragEvent.ACTION_DRAG_ENDED:
-                if (!event.getResult()) {
-                    view.setVisibility(View.VISIBLE);
+                // Turns off any color tinting
+                v.getBackground().clearColorFilter();
+                // Invalidates the view to force a redraw
+                v.invalidate();
+                // Does a getResult(), and displays what happened.
+                if (event.getResult()) {
+//                    Toast.makeText(this, "The drop was handled.", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "The drop didn't work.", Toast.LENGTH_SHORT).show();
+                    // returns true; the value is ignored.
+                    return true;
                 }
-                break;
-        }
-        return true;
-    }
-
-    private int calculateNewIndex(float x, float y) {
-        // calculate which column to move to
-        final float cellWidth = mGrid.getWidth() / mGrid.getColumnCount();
-        final int column = (int)(x / cellWidth);
-
-        // calculate which row to move to
-        final float cellHeight = mGrid.getHeight() / mGrid.getRowCount();
-        final int row = (int)Math.floor(y / cellHeight);
-
-        // the items in the GridLayout is organized as a wrapping list
-        // and not as an actual grid, so this is how to get the new index
-        int index = row * mGrid.getColumnCount() + column;
-        if (index >= mGrid.getChildCount()) {
-            index = mGrid.getChildCount() - 1;
-        }
-
-        return index;
-    }
-
-
-    private void startScrolling(int from, int to) {
-        if (from != to && mAnimator == null) {
-            mIsScrolling.set(true);
-            mAnimator = new ValueAnimator();
-            mAnimator.setInterpolator(new OvershootInterpolator());
-            mAnimator.setDuration(Math.abs(to - from));
-            mAnimator.setIntValues(from, to);
-            mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    mScrollView.smoothScrollTo(0, (int) valueAnimator.getAnimatedValue());
+                    // An unknown action type was received.
+                    default:
+                        Log.e("DragDrop Example", "Unknown action type received by OnDragListener.");
+                        break;
                 }
-            });
-            mAnimator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mIsScrolling.set(false);
-                    mAnimator = null;
-                }
-            });
-            mAnimator.start();
-        }
+                return false;
     }
-
-    private void stopScrolling() {
-        if (mAnimator != null) {
-            mAnimator.cancel();
-        }
-    }
-
 
 }
