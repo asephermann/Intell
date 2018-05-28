@@ -127,7 +127,7 @@ public class LogicalActivity extends AppCompatActivity {
 
     private static void initGame() {
         currentState = 0; // "playing" or ready to play
-        currentPlayer = "X";  // cross plays first
+        currentPlayer = "X";  // clubs plays first
         Log.d(TAG, "initGame: " + currentPlayer + currentState);
     }
 
