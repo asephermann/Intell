@@ -13,8 +13,7 @@ import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.controllersandviews.DragListener;
 import com.example.sweetseedsapp.controllersandviews.LongPressListener;
 
-public class LogicalActivity extends AppCompatActivity {
-
+public class TerniLapilliActivity extends AppCompatActivity {
     private static final String TAG = "LogicalActivity";
 
     private GridLayout gridLayout;
@@ -35,14 +34,14 @@ public class LogicalActivity extends AppCompatActivity {
     Typeface typeface;
 
     //Used for determining if the game is over
-//    private static int[][] possibleWinningCombo = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {6, 4, 2}};
-    private static int[] boardPieces = {R.id.topleft, R.id.topmiddle, R.id.topright,
-            R.id.middleleft, R.id.middle, R.id.middleright, R.id.bottomleft, R.id.middlebottom, R.id.bottomright};
+    //private static int[][] possibleWinningCombo = {{R.id.topleft, R.id.topmiddle, R.id.topright}, {R.id.middleleft, R.id.middle, R.id.middleright}, {R.id.bottomleft, R.id.middlebottom, R.id.bottomright}, {R.id.topleft, R.id.middleleft, R.id.bottomleft}, {R.id.topmiddle, R.id.middle, R.id.middlebottom}, {R.id.topright, R.id.middleright, R.id.bottomright}, {R.id.topleft, R.id.middle, R.id.bottomright}, {R.id.bottomleft, R.id.middle, R.id.topright}};
+    //private static int[] boardPieces = {R.id.topleft, R.id.topmiddle, R.id.topright,
+    //R.id.middleleft, R.id.middle, R.id.middleright, R.id.bottomleft, R.id.middlebottom, R.id.bottomright};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logical);
+        setContentView(R.layout.activity_terni_lapilli);
 
         gridLayout = findViewById(R.id.grid_layout);
         linearLayout = findViewById(R.id.linear_layout);
@@ -85,4 +84,5 @@ public class LogicalActivity extends AppCompatActivity {
 
     }
 
+    //Set up game logic
 }

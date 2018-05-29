@@ -9,16 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.sweetseedsapp.R;
-import com.example.sweetseedsapp.activities.BodilyKinActivity;
-import com.example.sweetseedsapp.activities.ExistentialActivity;
-import com.example.sweetseedsapp.activities.GamesActivity;
-import com.example.sweetseedsapp.activities.InterpersonalActivity;
-import com.example.sweetseedsapp.activities.IntrapersonalActivity;
-import com.example.sweetseedsapp.activities.LinguisticActivity;
-import com.example.sweetseedsapp.activities.LogicalActivity;
-import com.example.sweetseedsapp.activities.MusicalActivity;
-import com.example.sweetseedsapp.activities.NaturalistActivity;
-import com.example.sweetseedsapp.activities.SpatialActivity;
+import com.example.sweetseedsapp.activities.ninetypes.BodilyKinActivity;
+import com.example.sweetseedsapp.activities.ninetypes.ExistentialActivity;
+import com.example.sweetseedsapp.activities.ninetypes.InterpersonalActivity;
+import com.example.sweetseedsapp.activities.ninetypes.IntrapersonalActivity;
+import com.example.sweetseedsapp.activities.ninetypes.LinguisticActivity;
+import com.example.sweetseedsapp.activities.ninetypes.LogicalActivity;
+import com.example.sweetseedsapp.activities.ninetypes.MusicalActivity;
+import com.example.sweetseedsapp.activities.ninetypes.NaturalistActivity;
+import com.example.sweetseedsapp.activities.ninetypes.SpatialActivity;
 import com.example.sweetseedsapp.models.GamesModel;
 
 import java.util.List;

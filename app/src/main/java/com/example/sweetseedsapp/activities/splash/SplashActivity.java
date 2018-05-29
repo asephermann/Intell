@@ -1,4 +1,4 @@
-package com.example.sweetseedsapp.activities;
+package com.example.sweetseedsapp.activities.splash;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.activities.GamesActivity;
 import com.example.sweetseedsapp.activities.OnBoardingActivity;
 import com.example.sweetseedsapp.fragments.GamesFragment;
 

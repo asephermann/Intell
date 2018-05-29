@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sweetseedsapp.activities.BodilyKinActivity">
+    tools:context="com.example.sweetseedsapp.activities.ninetypes.BodilyKinActivity">
 
     <TextView
         android:id="@+id/bodily_kin_tx"
