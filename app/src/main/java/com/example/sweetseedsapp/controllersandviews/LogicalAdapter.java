@@ -1,5 +1,7 @@
 package com.example.sweetseedsapp.controllersandviews;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.activities.splash.TerniLapilliSplashActivity;
 import com.example.sweetseedsapp.models.LogicalModel;
 
 import java.util.List;
@@ -20,15 +23,24 @@ import java.util.List;
 public class LogicalAdapter extends RecyclerView.Adapter<LogicalAdapter.LogicalViewHolder> {
 
     List<LogicalModel> logicalModel;
+    ClickListener clickListener;
 
-    public LogicalAdapter(List<LogicalModel> logicalModelList) {
+    public LogicalAdapter(Context applicationContext, List<LogicalModel> logicalModelList, ClickListener clickListener) {
         this.logicalModel = logicalModelList;
+        this.clickListener = clickListener;
     }
 
     @NonNull
     @Override
     public LogicalAdapter.LogicalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.logical_item_view, parent, false);
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.logical_item_view, parent, false);
+        final LogicalViewHolder logicalViewHolder = new LogicalViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onItemClick(v, logicalViewHolder.getAdapterPosition());
+            }
+        });
         return new LogicalViewHolder(view);
     }
 
@@ -42,14 +54,16 @@ public class LogicalAdapter extends RecyclerView.Adapter<LogicalAdapter.LogicalV
         return logicalModel.size();
     }
 
-    public class LogicalViewHolder extends RecyclerView.ViewHolder {
+    public class LogicalViewHolder extends RecyclerView.ViewHolder{
+
+        ImageView logical_game_iv;
 
         public LogicalViewHolder(View itemView) {
             super(itemView);
         }
 
         public void onBind(LogicalModel logicalModel) {
-            ImageView logical_game_iv = itemView.findViewById(R.id.logical_game_iv);
+            logical_game_iv = itemView.findViewById(R.id.logical_game_iv);
             logical_game_iv.setImageResource(logicalModel.getImage());
         }
     }

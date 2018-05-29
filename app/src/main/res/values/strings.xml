@@ -24,4 +24,5 @@
     <string name="tie">Tie game</string>
     <string name="drop">The drop was handled.</string>
     <string name="drag">Dragged data is</string>
+    <string name="back">back</string>
 </resources>

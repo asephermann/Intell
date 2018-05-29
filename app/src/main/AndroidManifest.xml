@@ -29,7 +29,8 @@
         <activity android:name=".activities.ninetypes.ExistentialActivity" />
         <activity android:name=".activities.GamesActivity" />
         <activity android:name=".activities.TerniLapilliActivity" />
-        <activity android:name=".activities.splash.TerniLapilliSplashActivity"></activity>
+        <activity android:name=".activities.splash.TerniLapilliSplashActivity" />
+        <activity android:name=".activities.ComingSoonActivity"></activity>
     </application>
 
 </manifest>
