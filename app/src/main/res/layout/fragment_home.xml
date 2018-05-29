@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="215dp"
             android:background="#000"
-            android:src="@drawable/home_coming"/>
+            android:src="@drawable/games_coming_soon"/>
 
     </android.support.v7.widget.CardView>
 

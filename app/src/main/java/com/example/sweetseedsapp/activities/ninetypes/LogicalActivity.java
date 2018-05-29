@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.activities.splash.TerniLapilliSplashActivity;
+import com.example.sweetseedsapp.controllersandviews.ClickListener;
 import com.example.sweetseedsapp.controllersandviews.LogicalAdapter;
 import com.example.sweetseedsapp.models.LogicalModel;
 import java.util.ArrayList;
@@ -26,11 +26,20 @@ public class LogicalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_logical);
 
         recyclerView = findViewById(R.id.logical_menu_rv);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        LogicalAdapter logicalAdapter = new LogicalAdapter(populateLogicalGames());
-        logicalAdapter.notifyDataSetChanged();
+
+        LogicalAdapter logicalAdapter = new LogicalAdapter(getApplicationContext(), populateLogicalGames(), new ClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), TerniLapilliSplashActivity.class);
+                startActivity(intent);
+            }
+        });
+                logicalAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(logicalAdapter);
+
     }
 
     private List<LogicalModel> populateLogicalGames() {
@@ -41,11 +50,12 @@ public class LogicalActivity extends AppCompatActivity {
         logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
         logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
         logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
+        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
+        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
 
-        for (int i = 0; i < logicalModelList.size(); i++) {
+        for(int i = 0; i < logicalModelList.size(); i++){
             logicalModel = logicalModelList.get(i);
         }
-
         return logicalModelList;
     }
 
