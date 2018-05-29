@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FF8989"
-    tools:context="com.example.sweetseedsapp.activities.ScreenSlidePageFragment">
+    tools:context="com.example.sweetseedsapp.fragments.ScreenSlidePageFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

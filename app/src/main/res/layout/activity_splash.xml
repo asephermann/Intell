@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
     android:background="#000"
-    tools:context="com.example.sweetseedsapp.activities.SplashActivity">
+    tools:context="com.example.sweetseedsapp.activities.splash.SplashActivity">
 
     <ImageView
         android:id="@+id/app_logo"

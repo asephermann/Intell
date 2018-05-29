@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sweetseedsapp.activities.ninetypes.LinguisticActivity">
+    android:background="#000"
+    tools:context="com.example.sweetseedsapp.activities.splash.TerniLapilliSplashActivity">
 
-    <TextView
-        android:id="@+id/lniguistic_tx"
+
+    <ImageView
+        android:id="@+id/terni_logo"
+        android:src="@drawable/terni_lapilli"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Lingusitic"/>
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>

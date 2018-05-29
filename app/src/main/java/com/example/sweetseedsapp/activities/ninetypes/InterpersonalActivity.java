@@ -1,15 +1,15 @@
-package com.example.sweetseedsapp.activities;
+package com.example.sweetseedsapp.activities.ninetypes;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.sweetseedsapp.R;
 
-public class LinguisticActivity extends AppCompatActivity {
+public class InterpersonalActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_linguistic);
+        setContentView(R.layout.activity_interpersonal);
     }
 }

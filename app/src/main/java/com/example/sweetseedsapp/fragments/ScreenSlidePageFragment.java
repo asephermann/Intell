@@ -1,4 +1,4 @@
-package com.example.sweetseedsapp.activities;
+package com.example.sweetseedsapp.fragments;
 
 
 import android.os.Bundle;

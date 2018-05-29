@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,16 +18,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.OnBoardingActivity" />
-        <activity android:name=".activities.BodilyKinActivity" />
-        <activity android:name=".activities.SpatialActivity" />
-        <activity android:name=".activities.LogicalActivity" />
-        <activity android:name=".activities.NaturalistActivity" />
-        <activity android:name=".activities.MusicalActivity" />
-        <activity android:name=".activities.InterpersonalActivity" />
-        <activity android:name=".activities.IntrapersonalActivity" />
-        <activity android:name=".activities.LinguisticActivity" />
-        <activity android:name=".activities.ExistentialActivity" />
-        <activity android:name=".activities.GamesActivity"></activity>
+        <activity android:name=".activities.ninetypes.BodilyKinActivity" />
+        <activity android:name=".activities.ninetypes.SpatialActivity" />
+        <activity android:name=".activities.ninetypes.LogicalActivity" />
+        <activity android:name=".activities.ninetypes.NaturalistActivity" />
+        <activity android:name=".activities.ninetypes.MusicalActivity" />
+        <activity android:name=".activities.ninetypes.InterpersonalActivity" />
+        <activity android:name=".activities.ninetypes.IntrapersonalActivity" />
+        <activity android:name=".activities.ninetypes.LinguisticActivity" />
+        <activity android:name=".activities.ninetypes.ExistentialActivity" />
+        <activity android:name=".activities.GamesActivity" />
+        <activity android:name=".activities.TerniLapilliActivity" />
+        <activity android:name=".activities.splash.TerniLapilliSplashActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.sweetseedsapp.activities;
+package com.example.sweetseedsapp.activities.ninetypes;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
