@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.activities.BirdWatchingNaturalistGameActivity;
 import com.example.sweetseedsapp.activities.ninetypes.BodilyKinActivity;
 import com.example.sweetseedsapp.activities.ninetypes.ExistentialActivity;
 import com.example.sweetseedsapp.activities.ninetypes.InterpersonalActivity;
@@ -83,7 +84,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
                             itemView.getContext().startActivity(intent2);
                             break;
                         case R.drawable.naturalist:
-                            Intent intent3 = new Intent(itemView.getContext(), NaturalistActivity.class);
+                            Intent intent3 = new Intent(itemView.getContext(), BirdWatchingNaturalistGameActivity.class);
                             itemView.getContext().startActivity(intent3);
                             break;
                         case R.drawable.musical:
