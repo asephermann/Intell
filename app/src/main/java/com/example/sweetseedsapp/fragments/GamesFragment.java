@@ -107,7 +107,7 @@ public class GamesFragment extends Fragment {
         cardView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent(getActivity(), ExistentialActivity.class);
+                Intent intent4 = new Intent(getActivity(), SpatialActivity.class);
                 startActivity(intent4);
             }
         });
