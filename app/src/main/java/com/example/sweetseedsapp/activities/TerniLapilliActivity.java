@@ -1,7 +1,9 @@
 package com.example.sweetseedsapp.activities;
 
+import android.annotation.TargetApi;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridLayout;
@@ -38,6 +40,7 @@ public class TerniLapilliActivity extends AppCompatActivity {
     //private static int[] boardPieces = {R.id.topleft, R.id.topmiddle, R.id.topright,
     //R.id.middleleft, R.id.middle, R.id.middleright, R.id.bottomleft, R.id.middlebottom, R.id.bottomright};
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

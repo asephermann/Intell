@@ -2,13 +2,14 @@ package com.example.sweetseedsapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.controllersandviews.GamesAdapter;
 import com.example.sweetseedsapp.models.GamesModel;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class GamesActivity extends AppCompatActivity {
 
@@ -22,8 +23,8 @@ public class GamesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_games);
         recyclerView = findViewById(R.id.games_rv);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplication(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
+        recyclerView.setLayoutManager(gridLayoutManager);
         GamesAdapter gamesAdapter = new GamesAdapter(populateGamesActivity());
         gamesAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(gamesAdapter);

@@ -1,6 +1,8 @@
 package com.example.sweetseedsapp.activities;
 
+import android.annotation.TargetApi;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -133,6 +135,7 @@ public class OnBoardingActivity extends FragmentActivity {
         private static final float MIN_SCALE = 0.85f;
         private static final float MIN_ALPHA = 0.5f;
 
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         public void transformPage(View view, float position) {
             int pageWidth = view.getWidth();
             int pageHeight = view.getHeight();
