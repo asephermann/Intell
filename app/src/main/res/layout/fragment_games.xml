@@ -2,13 +2,265 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000"
     tools:context="com.example.sweetseedsapp.fragments.GamesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/games_rv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/games_rv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--/>-->
+
+    <TextView
+        android:id="@+id/choose_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="@string/choose_a_type"
+        android:layout_marginStart="80sp"
+        android:textSize="26sp"
+        android:layout_marginTop="7dp"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="15dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/type_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="BODILY"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/games_card_iv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bodilyk"
+                android:layout_marginTop="70dp"
+                android:layout_marginStart="35dp"/>
+
+        </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="145dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="LOGICAL"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logical_card"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="280dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RHYTHM"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/music_card"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginStart="15dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NATURALIST"
+            android:textSize="19sp"
+            android:layout_marginTop="10dp" />
+
+        <ImageView
+            android:id="@+id/games_card_iv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/naturalist_card"
+            android:layout_marginTop="30dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginStart="145dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="EXISTENTIAL"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="3dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/existential_card"
+            android:layout_marginTop="30dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginStart="280dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SOCIAL"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/intrapersonal_card"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginStart="15dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="SELF"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/interpersonal_card"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginStart="147dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SPATIAL"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/spatial_card"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="45dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginStart="280dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/type_tv9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:text="LINGUISTIC"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/games_card_iv9"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/linguistic_card"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="10dp"/>
+
+    </android.support.v7.widget.CardView>
 
 </FrameLayout>

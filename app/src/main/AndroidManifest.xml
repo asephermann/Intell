@@ -27,7 +27,6 @@
         <activity android:name=".activities.ninetypes.IntrapersonalActivity" />
         <activity android:name=".activities.ninetypes.LinguisticActivity" />
         <activity android:name=".activities.ninetypes.ExistentialActivity" />
-        <activity android:name=".activities.GamesActivity" />
         <activity android:name=".activities.TerniLapilliActivity" />
         <activity android:name=".activities.BirdWatchingNaturalistGameActivity"/>
         <activity android:name=".activities.splash.TerniLapilliSplashActivity"></activity>
