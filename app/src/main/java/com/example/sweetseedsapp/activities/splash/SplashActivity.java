@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.sweetseedsapp.R;
-import com.example.sweetseedsapp.activities.GamesActivity;
-import com.example.sweetseedsapp.activities.OnBoardingActivity;
-import com.example.sweetseedsapp.fragments.GamesFragment;
+import com.example.sweetseedsapp.activities.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
 
         appLogo = findViewById(R.id.app_logo);
 
-        final Intent intent = new Intent(this, GamesActivity.class);
+        final Intent intent = new Intent(this, MainActivity.class);
 
         new Handler().postDelayed(new Runnable(){
             @Override

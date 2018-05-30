@@ -10,7 +10,6 @@ import android.view.MenuItem;
 
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.fragments.GamesFragment;
-import com.example.sweetseedsapp.fragments.HomeFragment;
 import com.example.sweetseedsapp.fragments.StatsFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,16 +30,11 @@ public class MainActivity extends AppCompatActivity {
                         Fragment selectedFragment = null;
 
                         switch (item.getItemId()) {
-                            case R.id.navigation_home:
-                                selectedFragment = HomeFragment.newInstance();
-                                break;
-
-                            case R.id.navigation_stats:
-                                selectedFragment = StatsFragment.newInstance();
-                                break;
-
                             case R.id.navigation_games:
                                 selectedFragment = GamesFragment.newInstance();
+                                break;
+                            case R.id.navigation_stats:
+                                selectedFragment = StatsFragment.newInstance();
                                 break;
                         }
 
@@ -51,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, HomeFragment.newInstance());
+        transaction.replace(R.id.frame_layout, GamesFragment.newInstance());
         transaction.commit();
 
 

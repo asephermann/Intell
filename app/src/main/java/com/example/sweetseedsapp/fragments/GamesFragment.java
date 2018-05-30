@@ -50,68 +50,68 @@ public class GamesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_games, container, false);
-        recyclerView = view.findViewById(R.id.games_rv);
+//        recyclerView = view.findViewById(R.id.games_rv);
+//
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+//        recyclerView.setLayoutManager(layoutManager);
+//        GamesAdapter gamesAdapter = new GamesAdapter(populateGamesFragment());
+//        gamesAdapter.notifyDataSetChanged();
+//        recyclerView.setAdapter(gamesAdapter);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        GamesAdapter gamesAdapter = new GamesAdapter(populateGamesFragment());
-        gamesAdapter.notifyDataSetChanged();
-        recyclerView.setAdapter(gamesAdapter);
-
-        switch (gamesAdapter.getItemCount()){
-            case 0:
-                Intent intent = new Intent(getActivity(), BodilyKinActivity.class);
-                startActivity(intent);
-                break;
-            case 1:
-                Intent intent1 = new Intent(getActivity(), SpatialActivity.class);
-                startActivity(intent1);
-                break;
-            case 2:
-                Intent intent2 = new Intent(getActivity(), LogicalActivity.class);
-                startActivity(intent2);
-                break;
-            case 3:
-                Intent intent3 = new Intent(getActivity(), NaturalistActivity.class);
-                startActivity(intent3);
-                break;
-            case 4:
-                Intent intent4 = new Intent(getActivity(), MusicalActivity.class);
-                startActivity(intent4);
-                break;
-            case 5:
-                Intent intent5 = new Intent(getActivity(), InterpersonalActivity.class);
-                startActivity(intent5);
-                break;
-            case 6:
-                Intent intent6 = new Intent(getActivity(), IntrapersonalActivity.class);
-                startActivity(intent6);
-                break;
-            case 7:
-                Intent intent7 = new Intent(getActivity(), LinguisticActivity.class);
-                startActivity(intent7);
-                break;
-            case 8:
-                Intent intent8 = new Intent(getActivity(), ExistentialActivity.class);
-                startActivity(intent8);
-        }
+//        switch (gamesAdapter.getItemCount()){
+//            case 0:
+//                Intent intent = new Intent(getActivity(), BodilyKinActivity.class);
+//                startActivity(intent);
+//                break;
+//            case 1:
+//                Intent intent1 = new Intent(getActivity(), SpatialActivity.class);
+//                startActivity(intent1);
+//                break;
+//            case 2:
+//                Intent intent2 = new Intent(getActivity(), LogicalActivity.class);
+//                startActivity(intent2);
+//                break;
+//            case 3:
+//                Intent intent3 = new Intent(getActivity(), NaturalistActivity.class);
+//                startActivity(intent3);
+//                break;
+//            case 4:
+//                Intent intent4 = new Intent(getActivity(), MusicalActivity.class);
+//                startActivity(intent4);
+//                break;
+//            case 5:
+//                Intent intent5 = new Intent(getActivity(), InterpersonalActivity.class);
+//                startActivity(intent5);
+//                break;
+//            case 6:
+//                Intent intent6 = new Intent(getActivity(), IntrapersonalActivity.class);
+//                startActivity(intent6);
+//                break;
+//            case 7:
+//                Intent intent7 = new Intent(getActivity(), LinguisticActivity.class);
+//                startActivity(intent7);
+//                break;
+//            case 8:
+//                Intent intent8 = new Intent(getActivity(), ExistentialActivity.class);
+//                startActivity(intent8);
+//        }
         return view;
     }
 
-    private List<GamesModel> populateGamesFragment() {
-        dataForGames.add(new GamesModel(R.drawable.bodily_kin));
-        dataForGames.add(new GamesModel(R.drawable.spatial));
-        dataForGames.add(new GamesModel(R.drawable.logical));
-        dataForGames.add(new GamesModel(R.drawable.naturalist));
-        dataForGames.add(new GamesModel(R.drawable.musical));
-        dataForGames.add(new GamesModel(R.drawable.interpersonal));
-        dataForGames.add(new GamesModel(R.drawable.intrapersonal));
-        dataForGames.add(new GamesModel(R.drawable.linguistic));
-        dataForGames.add(new GamesModel(R.drawable.existential));
-
-        for (int i = 0; i < dataForGames.size(); i++) {
-            gamesModel = dataForGames.get(i);
-        }
-        return dataForGames;
-    }
+//    private List<GamesModel> populateGamesFragment() {
+//        dataForGames.add(new GamesModel(R.drawable.bodily_kin));
+//        dataForGames.add(new GamesModel(R.drawable.spatial));
+//        dataForGames.add(new GamesModel(R.drawable.logical));
+//        dataForGames.add(new GamesModel(R.drawable.naturalist));
+//        dataForGames.add(new GamesModel(R.drawable.musical));
+//        dataForGames.add(new GamesModel(R.drawable.interpersonal));
+//        dataForGames.add(new GamesModel(R.drawable.intrapersonal));
+//        dataForGames.add(new GamesModel(R.drawable.linguistic));
+//        dataForGames.add(new GamesModel(R.drawable.existential));
+//
+//        for (int i = 0; i < dataForGames.size(); i++) {
+//            gamesModel = dataForGames.get(i);
+//        }
+//        return dataForGames;
+//    }
 }

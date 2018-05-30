@@ -25,4 +25,5 @@
     <string name="drop">The drop was handled.</string>
     <string name="drag">Dragged data is</string>
     <string name="back">back</string>
+    <string name="choose_a_type">CHOOSE YOUR TYPE:</string>
 </resources>
