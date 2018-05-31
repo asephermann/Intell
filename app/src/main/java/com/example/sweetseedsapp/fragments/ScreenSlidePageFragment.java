@@ -3,15 +3,11 @@ package com.example.sweetseedsapp.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.sweetseedsapp.R;
-import com.example.sweetseedsapp.fragments.OnBoardingGameFragment;
-import com.example.sweetseedsapp.fragments.OnBoardingHomeFragment;
-import com.example.sweetseedsapp.fragments.OnBoardingStatsFragment;
 
 /**
  * A simple {@link Fragment} subclass.
