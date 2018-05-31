@@ -9,8 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.sweetseedsapp.R;
+import com.example.sweetseedsapp.controllersandviews.GridViewAdapter;
 import com.example.sweetseedsapp.controllersandviews.StatsOuterAdapter;
 import com.example.sweetseedsapp.models.StatsGridViewModel;
 import com.example.sweetseedsapp.models.StatsInnerRVModel;
@@ -25,14 +29,10 @@ import static android.content.ContentValues.TAG;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StatsFragment extends Fragment implements Runnable{
+public class StatsFragment extends Fragment {
 
     private static String TAG = "StatsFragment";
-    RecyclerView statsRecyclerView;
-    StatsOuterRVModel statsOuterData;
-    StatsInnerRVModel statsInnerRVModel;
-    List<StatsOuterRVModel> dataForStats = new ArrayList<>();
-    List<StatsGridViewModel> gridViewData = new ArrayList<>();
+    GridView gridView;
 
     public StatsFragment() {
         // Required empty public constructor
@@ -49,70 +49,21 @@ public class StatsFragment extends Fragment implements Runnable{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
-        statsRecyclerView = view.findViewById(R.id.stats_rv);
+        gridView = view.findViewById(R.id.grid_view_badges);
 
-        //For stats recycler view
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        statsRecyclerView.setLayoutManager(layoutManager);
-        StatsOuterAdapter statsOuterAdapter = new StatsOuterAdapter(populateOutRVData());
-        statsRecyclerView.setAdapter(statsOuterAdapter);
+        //For grid view adapter
+        gridView.setAdapter(new GridViewAdapter(getContext()));
 
-        Thread stats_threads = new Thread(new StatsFragment());
-        stats_threads.start();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                //Set up dialog box for the badge to explain what they are for.
+            }
+        });
 
         return view;
     }
 
-
-    private List<StatsOuterRVModel> populateOutRVData() {
-
-        //For 2 down image view and nested recycler view
-        dataForStats.add(new StatsOuterRVModel(R.id.badge_status_banner));
-        dataForStats.add(new StatsOuterRVModel(R.id.inner_rv));
-        dataForStats.add(new StatsOuterRVModel(R.id.grid_view_badges));
-
-        //Possibly implement multi threading here!
-
-        for(int i = 0; i < dataForStats.size(); i++){
-            statsOuterData = dataForStats.get(i);
-        }
-        return dataForStats;
-    }
-
-
-    private List<StatsInnerRVModel> getBadgeList() {
-        List<StatsInnerRVModel> badges = new ArrayList<>();
-
-        badges.add(new StatsInnerRVModel(R.drawable.badge_one, 0));
-        badges.add(new StatsInnerRVModel(R.drawable.badge_two, 1));
-        return badges;
-    }
-
-
-    private List<StatsGridViewModel> getGridViewData() {
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_one, 0));
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_two, 1));
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_three, 2));
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_four, 3));
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_five, 4));
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_six, 5));
-        gridViewData.add(new StatsGridViewModel(R.drawable.badge_seven, 6));
-
-        Log.d(TAG, "getGridViewData: " + gridViewData.size());
-        return gridViewData;
-    }
-
-    @Override
-    public void run() {
-
-        try{
-            statsOuterData.setStatsInnerRVDataList(getBadgeList());
-            statsOuterData.setGridViewData(getGridViewData());
-        }catch (NullPointerException e){
-            statsInnerRVModel.getBadge();
-            e.printStackTrace();
-        }
-    }
 
 }
 

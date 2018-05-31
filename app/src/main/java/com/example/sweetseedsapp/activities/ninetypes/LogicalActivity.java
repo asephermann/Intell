@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 import com.example.sweetseedsapp.R;
 import com.example.sweetseedsapp.activities.splash.TerniLapilliSplashActivity;
 import com.example.sweetseedsapp.controllersandviews.ClickListener;
@@ -17,6 +18,7 @@ import java.util.List;
 public class LogicalActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    TextView feat_games;
     List<LogicalModel> logicalModelList = new ArrayList<>();
     LogicalModel logicalModel;
 
@@ -26,6 +28,7 @@ public class LogicalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_logical);
 
         recyclerView = findViewById(R.id.logical_menu_rv);
+        feat_games = findViewById(R.id.log_card_tv);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -44,14 +47,7 @@ public class LogicalActivity extends AppCompatActivity {
 
     private List<LogicalModel> populateLogicalGames() {
         logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
-        logicalModelList.add(new LogicalModel(R.drawable.terni_lapilli));
+        //This recycler view will continue to build with more games.
 
         for(int i = 0; i < logicalModelList.size(); i++){
             logicalModel = logicalModelList.get(i);

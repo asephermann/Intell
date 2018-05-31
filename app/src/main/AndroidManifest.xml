@@ -17,7 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.OnBoardingActivity" />
         <activity android:name=".activities.ninetypes.BodilyKinActivity" />
         <activity android:name=".activities.ninetypes.SpatialActivity" />
         <activity android:name=".activities.ninetypes.LogicalActivity" />
